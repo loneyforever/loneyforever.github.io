@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, loneyforever">
+    <meta name="keywords" content="python基本数据类型, loneyforever">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | loneyforever</title>
+    <title>python基本数据类型 | loneyforever</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">python基本数据类型</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -443,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-26
+                    2022-04-28
                 </div>
                 
 
@@ -452,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    963
                 </div>
                 
 
@@ -469,19 +473,133 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+                <h3 id="字符串常用函数"><a href="#字符串常用函数" class="headerlink" title="字符串常用函数"></a>字符串常用函数</h3><pre><code>其中str为目标字符串
+
+str.lower()：将字符全改为小写
+
+str.upper()：将字符全改为大写
+
+str.split( sep = none )：返回一个列表，由str根据sep分割的部分组成
+
+str.count(sub)：返回子串在str中出现的次数
+
+str.replace(old,new)：返回字符串副本，所有old子串被替换成new
+
+str.center(width[,fillchar])：字符串str根据width宽度居中
+
+str.strip(chars)：从str中去除chars中列出的字符
+
+str.join(iter)：在iter变量除最后元素之外每个元素后面增加一个iter
+例：&quot;,&quot;join(&quot;12345&quot;)
+结果：&quot;1,2,3,4,5&quot;
+
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<h3 id="字符串类型的格式化"><a href="#字符串类型的格式化" class="headerlink" title="字符串类型的格式化"></a>字符串类型的格式化</h3><h5 id="使用：-lt-字符串-gt-format"><a href="#使用：-lt-字符串-gt-format" class="headerlink" title="使用：&lt;字符串&gt;.format"></a>使用：&lt;字符串&gt;.format</h5><p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425204954612.png" alt="image-20220425204954612"></p>
+<p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425205210715.png" alt="image-20220425205210715"></p>
+<h4 id="format应用"><a href="#format应用" class="headerlink" title="format应用"></a>format应用</h4><h5 id="一：填充"><a href="#一：填充" class="headerlink" title="一：填充"></a>一：填充</h5><p>（1）通过位置来填充字符串</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'he1lo &amp;#123;0&amp;#125; i am &amp;#123;1&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;&amp;#125; i am &amp;#123;&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;0&amp;#125; i am &amp;#123;1&amp;#125; . my name is &amp;#123;0&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#输出</span>
+he1lo Kevin i am Tom
+hello Kevin i am Tom
+hello Kevin i am Tom <span class="token punctuation">.</span> my name <span class="token keyword">is</span> Kevin
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<p>foramt会把参数按位置顺序来填充到字符串中，第一个参数是0，然后1 ……</p>
+<p>也可以不输入数字，这样也会按顺序来填充</p>
+<p>同一个参数可以填充多次，这个是format比%先进的地方</p>
+<p>（2）通过Key来填充</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;name1&amp;#125;  i am &amp;#123;name2&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>name1<span class="token operator">=</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span>name2<span class="token operator">=</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+<span class="token comment" spellcheck="true">#输出</span>
+hello Kevin i am Tom
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+<p>（3）通过下标来填充</p>
+<pre class=" language-python"><code class="language-python">names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Kevin'</span> <span class="token punctuation">,</span> <span class="token string">'Tom'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;names[0]&amp;#125; i am &amp;#123;names[1]&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>names<span class="token operator">=</span>names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;0[0]&amp;#125;i am &amp;#123;0[1]&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#输出</span>
+
+hello Kevin i am Tom
+hello Kevini am Tom
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>（4）通过字典的Key</p>
+<pre class=" language-python"><code class="language-python">names <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'name' : 'Kevin' , 'name2' : 'Tom'&amp;#125;</span>
+<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'hello&amp;#123;names[name]&amp;#125; i am &amp;#123;names[name2]&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>names<span class="token operator">=</span>names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#输出</span>
+helloKevin i am Tom
+</code></pre>
+<p>（5）通过对象的属性</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Names</span><span class="token punctuation">:</span>
+    name1<span class="token operator">=</span><span class="token string">'Kevin'</span>
+    name2<span class="token operator">=</span><span class="token string">'Tom'</span>
+    
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;names.name1&amp;#125; i am &amp;#123;names.name2&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>names<span class="token operator">=</span>Names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#输出</span>
+hello Kevin i am Tom
+（<span class="token number">6</span>）使用魔法参数
+</code></pre>
+<p>（6）使用魔法参数</p>
+<pre class=" language-python"><code class="language-python">args<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'lu'</span><span class="token punctuation">]</span>
+kwargs <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'name1': 'Kevin', "name2" : 'Tom'&amp;#125;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;name1&amp;#125; &amp;#123;&amp;#125; i am &amp;#123;name2&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#输出</span>
+hello Kevin lu i am Tom
+</code></pre>
+<p>二：格式转换</p>
+<p>三：对齐与填充</p>
+<p>四：其他</p>
+<p>（1）转义{和}符号</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;&amp;#123; hello &amp;#123;0&amp;#125; &amp;#125;&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>（2）format作为函数</p>
+<pre class=" language-python"><code class="language-python">f <span class="token operator">=</span> <span class="token string">'hello &amp;#123;0&amp;#125; i am &amp;#123;1&amp;#125;'</span><span class="token punctuation">.</span>format
+<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">(</span><span class="token string">'Kevin'</span> <span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#输出</span>
+hello Kevin i am Tom
+</code></pre>
+<p>3）格式化datetime</p>
+<pre class=" language-python"><code class="language-python">now <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;:%Y-%m-%d %X]&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>（4）{}内嵌{}</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;0:>&amp;#123;1&amp;#125;&amp;#125; '</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>（5）叹号的用法</p>
+<p>！后面可以加s r a 分别对应str() repr() ascii()</p>
+<p>作用是在填充前先用对应的函数来处理参数</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;!s&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;!r&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#‘2'</span>
+</code></pre>
+<h3 id="time库的使用"><a href="#time库的使用" class="headerlink" title="time库的使用"></a>time库的使用</h3><pre class=" language-python"><code class="language-python">时间获取：time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>gmtime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+时间格式化：strftime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>strptiem<span class="token punctuation">(</span><span class="token punctuation">)</span>
+程序计时：sleep<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>perf_counter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="基本时间函数"><a href="#基本时间函数" class="headerlink" title="基本时间函数"></a>基本时间函数</h4><p>time()：获取当前时间戳，即计算机内部时间值，浮点数</p>
+<p>ctime()：获取当前时间并以易读方式表示，返回字符串</p>
+<p>gmtime()：获取当前时间，表示为计算机可处理的时间格式</p>
+<h4 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h4><p>strftime()：tpl是格式化模板字符串，用来定义输出效果，ts是计算机内部时间类型变量</p>
+<pre class=" language-python"><code class="language-python">t <span class="token operator">=</span> time<span class="token punctuation">.</span>gmtime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%Y-%m-%d %H:%M:%S"</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span>
+输出：<span class="token string">'2022-01-26 12:55:20'</span>
+</code></pre>
+<p>strptime()：</p>
+<pre><code>timestr = &#39;2018-01-26 12:55:20&#39;
+time.strptime(timestr,&quot;%Y-%m-%d %H:%M:%S&quot;)
+</code></pre>
+<p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425212806125.png" alt="image-20220425212806125"></p>
+<p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425212658117.png" alt="image-20220425212658117"></p>
+<h4 id="程序计时"><a href="#程序计时" class="headerlink" title="程序计时"></a>程序计时</h4><p>sleep(s)：s为休眠时间，单位是秒，可以是浮点数</p>
+<p>perf_counter()：返回一个CPU级别的精确时间计数值，单位为秒，由于这个计数起点不确定，连续调用差值才有意义</p>
 
                 
             </div>
@@ -508,7 +626,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://loneyforever.github.io/2022/042616107.html">https://loneyforever.github.io/2022/042616107.html</a>
+                    <a href="https://loneyforever.github.io/2022/042820673.html">https://loneyforever.github.io/2022/042820673.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -545,7 +663,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -717,13 +839,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/042820673.html">
+                <a href="/2022/042819001.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="python基本数据类型">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="python基本数据类型练习">
                         
-                        <span class="card-title">python基本数据类型</span>
+                        <span class="card-title">python基本数据类型练习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -759,7 +881,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2022/042616107.html">
@@ -789,7 +911,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
