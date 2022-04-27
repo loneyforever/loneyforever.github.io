@@ -4,11 +4,24 @@
   
     
     <entry>
-      <title>happy birthday</title>
-      <link href="/2022/04274411.html"/>
-      <url>/2022/04274411.html</url>
+      <title></title>
+      <link href="/2022/04270.html"/>
+      <url>/2022/04270.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h4 id="库引用"><a href="#库引用" class="headerlink" title="库引用"></a>库引用</h4><p>1.传统引用</p><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> <span class="token operator">+</span> 库名调用：库名<span class="token punctuation">.</span>函数名<span class="token punctuation">(</span>参数<span class="token punctuation">)</span>例：<span class="token keyword">import</span> turtleturtle<span class="token punctuation">.</span>pensize<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span></code></pre><p>2.使用from+保留字引用，调用时可以直接使用函数名（前提是没有别的函数与库中的函数重名）</p><pre><code>例如：from turtle import*pensize(123)</code></pre><p>3.取别名（由 import 和 as 保留字共同完成）</p><pre class=" language-python"><code class="language-python">使用方式为：<span class="token keyword">import</span> <span class="token operator">&lt;</span>库名<span class="token operator">></span> <span class="token keyword">as</span> <span class="token operator">&lt;</span>库别名<span class="token operator">></span><span class="token operator">&lt;</span>库别名<span class="token operator">></span><span class="token punctuation">.</span><span class="token operator">&lt;</span>函数名<span class="token operator">></span>（<span class="token operator">&lt;</span>函数参数<span class="token operator">></span>）列：<span class="token keyword">import</span> turtle <span class="token keyword">as</span> tt<span class="token punctuation">.</span>pensize<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2022/04271.html"/>
+      <url>/2022/04271.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="字符串常用函数"><a href="#字符串常用函数" class="headerlink" title="字符串常用函数"></a>字符串常用函数</h3><pre><code>其中str为目标字符串str.lower()：将字符全改为小写str.upper()：将字符全改为大写str.split( sep = none )：返回一个列表，由str根据sep分割的部分组成str.count(sub)：返回子串在str中出现的次数str.replace(old,new)：返回字符串副本，所有old子串被替换成newstr.center(width[,fillchar])：字符串str根据width宽度居中str.strip(chars)：从str中去除chars中列出的字符str.join(iter)：在iter变量除最后元素之外每个元素后面增加一个iter例：&quot;,&quot;join(&quot;12345&quot;)结果：&quot;1,2,3,4,5&quot;</code></pre><h3 id="字符串类型的格式化"><a href="#字符串类型的格式化" class="headerlink" title="字符串类型的格式化"></a>字符串类型的格式化</h3><p>使用：&lt;字符串&gt;.format</p><p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425204954612.png" alt="image-20220425204954612"></p><p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425205210715.png" alt="image-20220425205210715"></p><h3 id="time库的使用"><a href="#time库的使用" class="headerlink" title="time库的使用"></a>time库的使用</h3><pre class=" language-python"><code class="language-python">时间获取：time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>gmtime<span class="token punctuation">(</span><span class="token punctuation">)</span>时间格式化：strftime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>strptiem<span class="token punctuation">(</span><span class="token punctuation">)</span>程序计时：sleep<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>perf_counter<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><h4 id="基本时间函数"><a href="#基本时间函数" class="headerlink" title="基本时间函数"></a>基本时间函数</h4><p>time()：获取当前时间戳，即计算机内部时间值，浮点数</p><p>ctime()：获取当前时间并以易读方式表示，返回字符串</p><p>gmtime()：获取当前时间，表示为计算机可处理的时间格式</p><h4 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h4><p>strftime()：tpl是格式化模板字符串，用来定义输出效果，ts是计算机内部时间类型变量</p><pre class=" language-python"><code class="language-python">t <span class="token operator">=</span> time<span class="token punctuation">.</span>gmtime<span class="token punctuation">(</span><span class="token punctuation">)</span>time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%Y-%m-%d %H:%M:%S"</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span>输出：<span class="token string">'2022-01-26 12:55:20'</span></code></pre><p>strptime()：</p><pre><code>timestr = &#39;2018-01-26 12:55:20&#39;time.strptime(timestr,&quot;%Y-%m-%d %H:%M:%S&quot;)</code></pre><p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425212806125.png" alt="image-20220425212806125"></p><p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425212658117.png" alt="image-20220425212658117"></p><h4 id="程序计时"><a href="#程序计时" class="headerlink" title="程序计时"></a>程序计时</h4><p>sleep(s)：s为休眠时间，单位是秒，可以是浮点数</p><p>perf_counter()：返回一个CPU级别的精确时间计数值，单位为秒，由于这个计数起点不确定，连续调用差值才有意义</p>]]></content>
       
       
       
@@ -22,19 +35,6 @@
       <url>/2022/042616107.html</url>
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>bug</title>
-      <link href="/2022/042642182.html"/>
-      <url>/2022/042642182.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
       
       
