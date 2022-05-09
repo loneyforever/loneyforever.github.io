@@ -473,7 +473,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="1-string做参数："><a href="#1-string做参数：" class="headerlink" title="1.string做参数："></a>1.string做参数：</h5><pre class=" language-c++"><code class="language-c++">#include <bits/stdc++.h>
+                <h5 id="1string做参数"><a class="markdownIt-Anchor" href="#1string做参数">#</a> 1.string 做参数：</h5>
+<pre class=" language-language-c++"><code class="language-language-c++">#include <bits/stdc++.h>
 using namespace std;
 void test(string s)&#123;
     s="shit";
@@ -483,11 +484,13 @@ int main()&#123;
     test(s);
     cout<<s<<endl;
 &#125;
+
 </code></pre>
 <p>打印结果：</p>
-<pre class=" language-c++"><code class="language-c++">test
+<pre class=" language-language-c++"><code class="language-language-c++">test
 </code></pre>
-<h5 id="2-string-amp-做参数："><a href="#2-string-amp-做参数：" class="headerlink" title="2.string&amp;做参数："></a>2.string&amp;做参数：</h5><pre class=" language-c++"><code class="language-c++">void test(string &s)&#123;
+<h5 id="2string做参数"><a class="markdownIt-Anchor" href="#2string做参数">#</a> 2.string &amp; 做参数：</h5>
+<pre class=" language-language-c++"><code class="language-language-c++">void test(string &s)&#123;
     s="shit";
 &#125;
 int main()&#123;
@@ -495,30 +498,34 @@ int main()&#123;
     test(s);
     cout<<s<<endl;
 &#125;
+
 </code></pre>
 <p>打印结果：</p>
-<pre class=" language-c++"><code class="language-c++">shit
+<pre class=" language-language-c++"><code class="language-language-c++">shit
 </code></pre>
-<p>3.const string&amp;做参数：<br>首先演示一下如果没有const时，直接传入c语言字符串（即”test”)的结果：</p>
-<pre class=" language-c++"><code class="language-c++">void test(string &s)&#123;
+<p>3.const string &amp; 做参数：<br>
+首先演示一下如果没有 const 时，直接传入 c 语言字符串（即 &quot;test&quot;) 的结果：</p>
+<pre class=" language-language-c++"><code class="language-language-c++">void test(string &s)&#123;
 &#125;
 int main()&#123;
     test("test");
 &#125;
+
 </code></pre>
-<p>报错：无法用 “const char [5]” 类型的值初始化 “std::__cxx11::string &amp;” 类型的引用(非常量限定)</p>
-<p>加上const后就可以了</p>
-<pre class=" language-c++"><code class="language-c++">void test(const string &s)&#123;
-    cout<<s<<endl;
+<p>报错：无法用 “const char [5]” 类型的值初始化 “std::__cxx11::string &amp;” 类型的引用 (非常量限定)</p>
+<p>加上 const 后就可以了</p>
+<pre class=" language-language-c++"><code class="language-language-c++">void test(const string &s)&#123;
+	cout<<s<<endl;
 &#125;
 int main()&#123;
     test("test");
 &#125;
+
 </code></pre>
 <p>打印结果：</p>
-<pre class=" language-c++"><code class="language-c++">test
+<pre class=" language-language-c++"><code class="language-language-c++">test
 </code></pre>
-<p>这里没有报错说明const前缀的应用的一部分原因就是为了方便使用c语言字符串。</p>
+<p>这里没有报错说明 const 前缀的应用的一部分原因就是为了方便使用 c 语言字符串。</p>
 
                 
             </div>

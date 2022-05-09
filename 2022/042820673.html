@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    963
+                    897
                 </div>
                 
 
@@ -473,7 +473,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="字符串常用函数"><a href="#字符串常用函数" class="headerlink" title="字符串常用函数"></a>字符串常用函数</h3><pre><code>其中str为目标字符串
+                <h3 id="字符串常用函数"><a class="markdownIt-Anchor" href="#字符串常用函数">#</a> 字符串常用函数</h3>
+<pre><code>其中str为目标字符串
 
 str.lower()：将字符全改为小写
 
@@ -493,113 +494,122 @@ str.join(iter)：在iter变量除最后元素之外每个元素后面增加一�
 例：&quot;,&quot;join(&quot;12345&quot;)
 结果：&quot;1,2,3,4,5&quot;
 
+
 </code></pre>
-<h3 id="字符串类型的格式化"><a href="#字符串类型的格式化" class="headerlink" title="字符串类型的格式化"></a>字符串类型的格式化</h3><h5 id="使用：-lt-字符串-gt-format"><a href="#使用：-lt-字符串-gt-format" class="headerlink" title="使用：&lt;字符串&gt;.format"></a>使用：&lt;字符串&gt;.format</h5><p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425204954612.png" alt="image-20220425204954612"></p>
-<p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425205210715.png" alt="image-20220425205210715"></p>
-<h4 id="format应用"><a href="#format应用" class="headerlink" title="format应用"></a>format应用</h4><h5 id="一：填充"><a href="#一：填充" class="headerlink" title="一：填充"></a>一：填充</h5><p>（1）通过位置来填充字符串</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'he1lo &amp;#123;0&amp;#125; i am &amp;#123;1&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<h3 id="字符串类型的格式化"><a class="markdownIt-Anchor" href="#字符串类型的格式化">#</a> 字符串类型的格式化</h3>
+<h5 id="使用字符串format"><a class="markdownIt-Anchor" href="#使用字符串format">#</a> 使用：&lt;字符串&gt;.format</h5>
+<p><img src="C:%5CUsers%5C86188%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220425204954612.png" alt="image-20220425204954612"></p>
+<p><img src="C:%5CUsers%5C86188%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220425205210715.png" alt="image-20220425205210715"></p>
+<h4 id="format应用"><a class="markdownIt-Anchor" href="#format应用">#</a> format 应用</h4>
+<h5 id="一填充"><a class="markdownIt-Anchor" href="#一填充">#</a> 一：填充</h5>
+<p>（1）通过位置来填充字符串</p>
+<pre class=" language-language-python"><code class="language-language-python">print('he1lo &#123;0&#125; i am &#123;1&#125;'.format('Kevin','Tom'))
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;&amp;#125; i am &amp;#123;&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+print('hello &#123;&#125; i am &#123;&#125;'.format('Kevin','Tom'))
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;0&amp;#125; i am &amp;#123;1&amp;#125; . my name is &amp;#123;0&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+print('hello &#123;0&#125; i am &#123;1&#125; . my name is &#123;0&#125;'.format('Kevin','Tom'))
 
-<span class="token comment" spellcheck="true">#输出</span>
+#输出
 he1lo Kevin i am Tom
 hello Kevin i am Tom
-hello Kevin i am Tom <span class="token punctuation">.</span> my name <span class="token keyword">is</span> Kevin
+hello Kevin i am Tom . my name is Kevin
 </code></pre>
-<p>foramt会把参数按位置顺序来填充到字符串中，第一个参数是0，然后1 ……</p>
+<p>foramt 会把参数按位置顺序来填充到字符串中，第一个参数是 0，然后 1 ……</p>
 <p>也可以不输入数字，这样也会按顺序来填充</p>
-<p>同一个参数可以填充多次，这个是format比%先进的地方</p>
-<p>（2）通过Key来填充</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;name1&amp;#125;  i am &amp;#123;name2&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>name1<span class="token operator">=</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span>name2<span class="token operator">=</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
-<span class="token comment" spellcheck="true">#输出</span>
+<p>同一个参数可以填充多次，这个是 format 比 % 先进的地方</p>
+<p>（2）通过 Key 来填充</p>
+<pre class=" language-language-python"><code class="language-language-python">print('hello &#123;name1&#125;  i am &#123;name2&#125;'.format(name1='Kevin',name2='Tom'))  
+#输出
 hello Kevin i am Tom
 </code></pre>
 <p>（3）通过下标来填充</p>
-<pre class=" language-python"><code class="language-python">names<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'Kevin'</span> <span class="token punctuation">,</span> <span class="token string">'Tom'</span><span class="token punctuation">]</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;names[0]&amp;#125; i am &amp;#123;names[1]&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>names<span class="token operator">=</span>names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<pre class=" language-language-python"><code class="language-language-python">names=['Kevin' , 'Tom']
+print('hello &#123;names[0]&#125; i am &#123;names[1]&#125;'.format(names=names))
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;0[0]&amp;#125;i am &amp;#123;0[1]&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+print('hello &#123;0[0]&#125;i am &#123;0[1]&#125;'.format(names))
 
-<span class="token comment" spellcheck="true">#输出</span>
+#输出
 
 hello Kevin i am Tom
 hello Kevini am Tom
 </code></pre>
-<p>（4）通过字典的Key</p>
-<pre class=" language-python"><code class="language-python">names <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'name' : 'Kevin' , 'name2' : 'Tom'&amp;#125;</span>
-<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">'hello&amp;#123;names[name]&amp;#125; i am &amp;#123;names[name2]&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>names<span class="token operator">=</span>names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<p>（4）通过字典的 Key</p>
+<pre class=" language-language-python"><code class="language-language-python">names = &#123;'name' : 'Kevin' , 'name2' : 'Tom'&#125;
+print ('hello&#123;names[name]&#125; i am &#123;names[name2]&#125;'.format(names=names))
 
-<span class="token comment" spellcheck="true">#输出</span>
+#输出
 helloKevin i am Tom
 </code></pre>
 <p>（5）通过对象的属性</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Names</span><span class="token punctuation">:</span>
-    name1<span class="token operator">=</span><span class="token string">'Kevin'</span>
-    name2<span class="token operator">=</span><span class="token string">'Tom'</span>
+<pre class=" language-language-python"><code class="language-language-python">class Names:
+    name1='Kevin'
+	name2='Tom'
     
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;names.name1&amp;#125; i am &amp;#123;names.name2&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>names<span class="token operator">=</span>Names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+print('hello &#123;names.name1&#125; i am &#123;names.name2&#125;'.format(names=Names))
 
-<span class="token comment" spellcheck="true">#输出</span>
+#输出
 hello Kevin i am Tom
-（<span class="token number">6</span>）使用魔法参数
+（6）使用魔法参数
 </code></pre>
 <p>（6）使用魔法参数</p>
-<pre class=" language-python"><code class="language-python">args<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'lu'</span><span class="token punctuation">]</span>
-kwargs <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;'name1': 'Kevin', "name2" : 'Tom'&amp;#125;</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;name1&amp;#125; &amp;#123;&amp;#125; i am &amp;#123;name2&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#输出</span>
+<pre class=" language-language-python"><code class="language-language-python">args=['lu']
+kwargs = &#123;'name1': 'Kevin', "name2" : 'Tom'&#125;
+print('hello &#123;name1&#125; &#123;&#125; i am &#123;name2&#125;'.format(*args,**kwargs))
+#输出
 hello Kevin lu i am Tom
 </code></pre>
 <p>二：格式转换</p>
 <p>三：对齐与填充</p>
 <p>四：其他</p>
-<p>（1）转义{和}符号</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;&amp;#123; hello &amp;#123;0&amp;#125; &amp;#125;&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<p>（1）转义 {和} 符号</p>
+<pre class=" language-language-python"><code class="language-language-python">print('&#123;&#123; hello &#123;0&#125; &#125;&#125;'.format('Kevin'))
 </code></pre>
-<p>（2）format作为函数</p>
-<pre class=" language-python"><code class="language-python">f <span class="token operator">=</span> <span class="token string">'hello &amp;#123;0&amp;#125; i am &amp;#123;1&amp;#125;'</span><span class="token punctuation">.</span>format
-<span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token punctuation">(</span><span class="token string">'Kevin'</span> <span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<p>（2）format 作为函数</p>
+<pre class=" language-language-python"><code class="language-language-python">f = 'hello &#123;0&#125; i am &#123;1&#125;'.format
+print(f('Kevin' ,'Tom'))
 
-<span class="token comment" spellcheck="true">#输出</span>
+#输出
 hello Kevin i am Tom
 </code></pre>
-<p>3）格式化datetime</p>
-<pre class=" language-python"><code class="language-python">now <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;:%Y-%m-%d %X]&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<p>3）格式化 datetime</p>
+<pre class=" language-language-python"><code class="language-language-python">now = datetime.now()
+print('&#123;:%Y-%m-%d %X]&#125;'.format(now))
 </code></pre>
-<p>（4）{}内嵌{}</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello &amp;#123;0:>&amp;#123;1&amp;#125;&amp;#125; '</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'Kevin'</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<p>（4）{} 内嵌 {}</p>
+<pre class=" language-language-python"><code class="language-language-python">print('hello &#123;0:>&#123;1&#125;&#125; '.format('Kevin',50))
 </code></pre>
 <p>（5）叹号的用法</p>
-<p>！后面可以加s r a 分别对应str() repr() ascii()</p>
+<p>！后面可以加 s r a 分别对应 str () repr () ascii ()</p>
 <p>作用是在填充前先用对应的函数来处理参数</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;!s&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#2</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'&amp;#123;!r&amp;#125;'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">'2'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#‘2'</span>
+<pre class=" language-language-python"><code class="language-language-python">print('&#123;!s&#125;'.format('2'))
+#2
+print('&#123;!r&#125;'.format('2'))
+#‘2'
 </code></pre>
-<h3 id="time库的使用"><a href="#time库的使用" class="headerlink" title="time库的使用"></a>time库的使用</h3><pre class=" language-python"><code class="language-python">时间获取：time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>ctime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>gmtime<span class="token punctuation">(</span><span class="token punctuation">)</span>
-时间格式化：strftime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>strptiem<span class="token punctuation">(</span><span class="token punctuation">)</span>
-程序计时：sleep<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>perf_counter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<h3 id="time库的使用"><a class="markdownIt-Anchor" href="#time库的使用">#</a> time 库的使用</h3>
+<pre class=" language-language-python"><code class="language-language-python">时间获取：time(),ctime(),gmtime()
+时间格式化：strftime(),strptiem()
+程序计时：sleep(),perf_counter()
 </code></pre>
-<h4 id="基本时间函数"><a href="#基本时间函数" class="headerlink" title="基本时间函数"></a>基本时间函数</h4><p>time()：获取当前时间戳，即计算机内部时间值，浮点数</p>
-<p>ctime()：获取当前时间并以易读方式表示，返回字符串</p>
-<p>gmtime()：获取当前时间，表示为计算机可处理的时间格式</p>
-<h4 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h4><p>strftime()：tpl是格式化模板字符串，用来定义输出效果，ts是计算机内部时间类型变量</p>
-<pre class=" language-python"><code class="language-python">t <span class="token operator">=</span> time<span class="token punctuation">.</span>gmtime<span class="token punctuation">(</span><span class="token punctuation">)</span>
-time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%Y-%m-%d %H:%M:%S"</span><span class="token punctuation">,</span>t<span class="token punctuation">)</span>
-输出：<span class="token string">'2022-01-26 12:55:20'</span>
+<h4 id="基本时间函数"><a class="markdownIt-Anchor" href="#基本时间函数">#</a> 基本时间函数</h4>
+<p>time ()：获取当前时间戳，即计算机内部时间值，浮点数</p>
+<p>ctime ()：获取当前时间并以易读方式表示，返回字符串</p>
+<p>gmtime ()：获取当前时间，表示为计算机可处理的时间格式</p>
+<h4 id="时间格式化"><a class="markdownIt-Anchor" href="#时间格式化">#</a> 时间格式化</h4>
+<p>strftime ()：tpl 是格式化模板字符串，用来定义输出效果，ts 是计算机内部时间类型变量</p>
+<pre class=" language-language-python"><code class="language-language-python">t = time.gmtime()
+time.strftime("%Y-%m-%d %H:%M:%S",t)
+输出：'2022-01-26 12:55:20'
 </code></pre>
 <p>strptime()：</p>
-<pre><code>timestr = &#39;2018-01-26 12:55:20&#39;
+<pre><code>timestr = '2018-01-26 12:55:20'
 time.strptime(timestr,&quot;%Y-%m-%d %H:%M:%S&quot;)
 </code></pre>
-<p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425212806125.png" alt="image-20220425212806125"></p>
-<p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20220425212658117.png" alt="image-20220425212658117"></p>
-<h4 id="程序计时"><a href="#程序计时" class="headerlink" title="程序计时"></a>程序计时</h4><p>sleep(s)：s为休眠时间，单位是秒，可以是浮点数</p>
-<p>perf_counter()：返回一个CPU级别的精确时间计数值，单位为秒，由于这个计数起点不确定，连续调用差值才有意义</p>
+<p><img src="C:%5CUsers%5C86188%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220425212806125.png" alt="image-20220425212806125"></p>
+<p><img src="C:%5CUsers%5C86188%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220425212658117.png" alt="image-20220425212658117"></p>
+<h4 id="程序计时"><a class="markdownIt-Anchor" href="#程序计时">#</a> 程序计时</h4>
+<p>sleep (s)：s 为休眠时间，单位是秒，可以是浮点数</p>
+<p>perf_counter ()：返回一个 CPU 级别的精确时间计数值，单位为秒，由于这个计数起点不确定，连续调用差值才有意义</p>
 
                 
             </div>
