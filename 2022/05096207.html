@@ -520,8 +520,8 @@ int main()
 </code></pre>
 <h4 id="判断输入流结束"><a class="markdownIt-Anchor" href="#判断输入流结束">#</a> 判断输入流结束</h4>
 <p>可以用如下方法判断输入流结束：</p>
-<pre><code>int x;
-while(cin&gt;&gt;x)
+<pre class=" language-language-c++"><code class="language-language-c++">int x;
+while(cin>>x)
 &#123;
 	······
 &#125;
@@ -531,20 +531,22 @@ while(cin&gt;&gt;x)
 <li>如果从键盘输入，则在单独一行 Ctrl + z 代表输入流结束。</li>
 </ol>
 <h4 id="istream类的成员函数"><a class="markdownIt-Anchor" href="#istream类的成员函数">#</a> istream 类的成员函数</h4>
-<pre><code>istream &amp; getline(char *buf, int bufSize);
+<pre class=" language-language-c++"><code class="language-language-c++">istream & getline(char *buf, int bufSize);
 从输入流中读取bufSize-1个字符到缓冲区buf，或读到'\n'为止（哪个先到算哪个）。
 
-istream &amp; getline(cahr *buf, int bufSize, char delim);
+istream & getline(cahr *buf, int bufSize, char delim);
 从输入流中读取bufSize-1个字符到缓冲区buf，或者读到delim字符为止（哪个先到算哪个）。
 
-两个函数都会自动在buf中读入数据的结尾添加'\0'。'\n'或delim都不会被读入buf，但会被从输入流中取走。如果输入流中'\n'或delim之前的字符个数达到或超过了bufSize个，就导致读入出错，其结果就是：虽然本次读入已经完成，但是之后的读入就都会失败了。
+两个函数都会自动在buf中读入数据的结尾添加'\0'。'\n'或delim都不会被读入buf，
+但会被从输入流中取走。如果输入流中'\n'或delim之前的字符个数达到或超过了bufSize个，
+就导致读入出错，其结果就是：虽然本次读入已经完成，但是之后的读入就都会失败了。
 
 可以用 if(!cin.getline(···))判断输入是否结束。
 
 boof eof();	//判断输入流是否结束
 int peek();	//返回下一个字符，但不从流中去掉
-istream &amp; putback(char c);	//将字符ch放回输入流
-istream &amp; ignore(int nCount = 1,int delim = EOF);	//从流中删掉最多nCount个字符，遇到EOf时结束。
+istream & putback(char c);	//将字符ch放回输入流
+istream & ignore(int nCount = 1,int delim = EOF);	//从流中删掉最多nCount个字符，遇到EOf时结束。
 </code></pre>
 
                 
