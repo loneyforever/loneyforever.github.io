@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="序列类型, loneyforever">
+    <meta name="keywords" content="c++虚函数与多态, loneyforever">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>序列类型 | loneyforever</title>
+    <title>c++虚函数与多态 | loneyforever</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">序列类型</h1>
+                    <h1 class="description center-align post-title">c++虚函数与多态</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/c/">
+                                <span class="chip bg-color">c++</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-02
+                    2022-05-09
                 </div>
                 
 
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    439
+                    758
                 </div>
                 
 
@@ -473,48 +473,328 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、序列类型通用函数"><a href="#一、序列类型通用函数" class="headerlink" title="一、序列类型通用函数"></a>一、序列类型通用函数</h3><pre class=" language-python"><code class="language-python">len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列的长度
+                <h3 id="一、虚函数"><a href="#一、虚函数" class="headerlink" title="一、虚函数"></a>一、虚函数</h3><ol>
+<li>定义：在类的定义中，前面有virtual 关键字的成员函数就是虚函数。</li>
+</ol>
+<pre class=" language-c++"><code class="language-c++">class base&#123;
+    virtual int get();
+&#125;;
 
-min<span class="token punctuation">(</span>s<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列的最小元素，s中元素需要可比较
-
-max<span class="token punctuation">(</span>s<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列的最大元素，s中元素需要可比较
-
-s<span class="token punctuation">.</span>index<span class="token punctuation">(</span>i<span class="token punctuation">)</span>或s<span class="token punctuation">.</span>index<span class="token punctuation">(</span>x<span class="token punctuation">,</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列从i开始到j位置中x第一次出现的位置
-
-s<span class="token punctuation">.</span>count<span class="token punctuation">(</span>x<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列中s出现的总次数
+int base::get()&#123;&#125;
 </code></pre>
-<h3 id="二、元组类型"><a href="#二、元组类型" class="headerlink" title="二、元组类型"></a>二、元组类型</h3><p>1.元组是一种序列类型，一旦创建就不能修改</p>
-<p>2.使用小括号()或tuple()创建，元素间用逗号分隔</p>
-<p>3.使用时可以用也可以不用小括号()</p>
-<h3 id="三、列表类型"><a href="#三、列表类型" class="headerlink" title="三、列表类型"></a>三、列表类型</h3><p>1.列表是一种序列类型，创建后可以随便修改</p>
-<p>2.使用方括号[]或list()创建，元素间用逗号，分隔</p>
-<p>3.列表中个元素类型可以不同，无长度限制</p>
-<h4 id="列表类型操作函数和方法"><a href="#列表类型操作函数和方法" class="headerlink" title="列表类型操作函数和方法"></a>列表类型操作函数和方法</h4><pre class=" language-python"><code class="language-python">ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>x			<span class="token operator">//</span>替换列表ls底i元素为x
-
-ls<span class="token punctuation">[</span>i<span class="token punctuation">:</span>j<span class="token punctuation">:</span>k<span class="token punctuation">]</span><span class="token operator">=</span>lt		<span class="token operator">//</span>	用列表lt替换ls切片后所对应元素子列表
-
-<span class="token keyword">del</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>			<span class="token operator">//</span>删除列表ls中第i元素
-
-<span class="token keyword">del</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">:</span>j<span class="token punctuation">:</span>k<span class="token punctuation">]</span>			<span class="token operator">//</span>删除列表ls中第i到j以k为步长的元素
-
-ls<span class="token operator">+=</span>lt			<span class="token operator">//</span>更新列表ls，将列表lt元素郑家到列表ls中
-
-ls<span class="token operator">*=</span>n			<span class="token operator">//</span>更新列表，其元素重复n次
-
-ls<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>		<span class="token operator">//</span>在列表ls最后增加一个元素x
-
-ls<span class="token punctuation">,</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>		<span class="token operator">//</span>删除列表ls中所有元素
-
-ls<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>		<span class="token operator">//</span>生成一个新列表，赋值ls中所有元素
-
-ls<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>i<span class="token punctuation">,</span>x<span class="token punctuation">)</span>		<span class="token operator">//</span>在列表ls中第i位置增加元素x
-
-ls<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>i<span class="token punctuation">)</span>		<span class="token operator">//</span>将列表ls中第i位置元素取出并删除该元素
-
-ls<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>x<span class="token punctuation">)</span>		<span class="token operator">//</span>将列表ls中出现的第一个元素x删除
-
-ls<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span>		<span class="token operator">//</span>将列表ls中的元素反转
+<ol start="2">
+<li>virtual 关键字只用在类定义里的函数声明中，写函数体时不用。</li>
+<li>构造函数和静态成员函数不能是虚函数</li>
+<li>派生类中和基类中与虚函数同名同参数表的函数不加virtual也自动成为虚函数。</li>
+<li>多态实现的关键——虚函数表：每一个有虚函数的类（或有虚函数的类的派生类都有一个虚函数表），该类的任何对象中都放着虚函数表的指针。虚函数表中列出了该类的虚函数地址。所以每个有虚函数的对象都会多四个字节来存放虚函数表的地址。</li>
+</ol>
+<h4 id="虚析构函数"><a href="#虚析构函数" class="headerlink" title="虚析构函数"></a>虚析构函数</h4><p>为了避免内存泄露，而且时当子类中会有指针成员变量时才会使用到。</p>
+<ol>
+<li>通过基类的指针删除派生类的对象时，通常情况下只调用基类的析构函数。但是，删除一个派生类对象时，应该先调用派生类的析构函数，在调用基类的析构函数。所以就需要把基类的析构函数声明为<strong>virtual</strong>，派生类的析构函数可以不用virtual声明，这时再删除派生类对象时，首先调用派生类的析构函数，然后调用基类的析构函数。</li>
+<li>一般来说，一个类如果定义了虚函数，则应该将析构函数也定义成虚函数。或者，一个类打算作为基类使用，也应该将析构函数定成虚函数。</li>
+</ol>
+<h4 id="纯虚函数和抽象类"><a href="#纯虚函数和抽象类" class="headerlink" title="纯虚函数和抽象类"></a>纯虚函数和抽象类</h4><ol>
+<li>纯虚函数：没有函数体的虚函数</li>
+</ol>
+<pre class=" language-c++"><code class="language-c++">virtual void print() = 0;	//纯虚函数
 </code></pre>
+<ol start="2">
+<li><p>包含纯虚函数的类就是抽象类</p>
+<p>（1）抽象类只能作为基类来派生新类使用，不能创建抽象类的对象</p>
+<p>（2）抽象类的指针和引用可以指向由抽象类派生出来的类的对象</p>
+</li>
+</ol>
+<p>​	例</p>
+<pre class=" language-c++"><code class="language-c++">A a;	//A是抽象类，不能创建对象
+A *pa;	//ok，可以定义抽象类的指针和引用
+pa = new A;		//A是抽象类，不能创建对象
+</code></pre>
+<ol start="3">
+<li>在抽象类的成员函数内可以调用纯虚函数（因为多态可以调用），但是在构造函数或析构函数内部不能调用纯虚函数。</li>
+<li>如果一个类从抽象类派生而来，那么当且仅当它实现了基类中的所有纯虚函数，它才能成为非抽象类。</li>
+</ol>
+<p>例;</p>
+<pre class=" language-c++"><code class="language-c++">#include<iostream>
+using namespace std;
+
+class A&#123;
+public:
+    virtual void f() = 0;	//纯虚函数
+    void g()
+    &#123;
+        this->f();	//ok，抽象类的成员函数内可以调用纯虚函数，其中this指针指向class A的派生类对象
+    &#125;
+    A()
+    &#123;
+        //f();   //错误，构造函数或析构函数内部不能调用纯虚函数
+    &#125;
+&#125;；
+
+class B:public A
+&#123;
+public:
+    void f()
+    &#123;
+        cout<<"B:f()"<<endl;
+    &#125;
+&#125;;
+
+int main()
+&#123;
+    B b;
+    b.g();
+    return 0;
+&#125;
+</code></pre>
+<p>运行：</p>
+<pre class=" language-c++"><code class="language-c++">B:f()
+</code></pre>
+<h3 id="二、多态"><a href="#二、多态" class="headerlink" title="二、多态"></a>二、多态</h3><p><strong>多态的作用：在面向对象的程序设计中使用多态，能够增强程序的可扩充性，即程序需要修改或增加功能的时候需要增加和改动的代码较少。</strong></p>
+<p><strong>在非构造函数，非析构函数的成员函数中调用虚函数是多态。</strong></p>
+<p><strong>在构造函数和析构函数中调用虚函数，不是多态。编译时即可确定，调用的函数是自己的类或者基类中定义的函数，不会等到运行时才决定调用基类的还是派生类的函数。</strong></p>
+<h4 id="表现形式1："><a href="#表现形式1：" class="headerlink" title="表现形式1："></a>表现形式1：</h4><ol>
+<li><p>派生类的指针可以赋给基类的指针。</p>
+</li>
+<li><p>通过基类指针调用基类和派生类中的同名虚函数时：</p>
+<p>（1）若该指针指向一个基类的对象，那么被调用是基类的虚函数。</p>
+<p>（2）若该指针指向一个派生类的对象，那么被调用是派生类的虚函数。</p>
+<pre class=" language-c++"><code class="language-c++">class CBase&#123;
+public:
+    virtual void someVirtualFunction()&#123;&#125;
+&#125;;
+
+class CDerived:public CBase&#123;
+public:
+    virtual void SomeVirtualfunction()&#123;&#125;
+&#125;;
+
+int main&#123;
+    CDerived ODerived;
+    CBase * p = & ODerived;	//这里是由基类的指针指向派生类的对象
+    p->SomeVirtualFunction();//调用哪个虚函数取决于p指向哪种类型的对象，所以这里是调用派生类的SomeVirtualFunction()
+    return 0;
+&#125;
+</code></pre>
+</li>
+</ol>
+<h4 id="表现形式2："><a href="#表现形式2：" class="headerlink" title="表现形式2："></a>表现形式2：</h4><ol>
+<li><p>派生类的对象可以赋给基类引用。</p>
+</li>
+<li><p>通过基类引用调用基类和派生类中的同名虚函数时：</p>
+<p>（1）若该引用引用的是一个基类的对象，那么被调用的是基类的虚函数。</p>
+<p>（2）若该引用引用的是一个派生类的对象，那么被调用的是派生类的虚函数。</p>
+<pre class=" language-c++"><code class="language-c++">class CBase&#123;
+public:
+    virtual void someVirtualFunction()&#123;&#125;
+&#125;;
+
+class CDerived:public CBase&#123;
+public:
+    virtual void SomeVirtualfunction()&#123;&#125;
+&#125;;
+
+int main&#123;
+    CDerived ODerived;
+    CBase &r = ODerived;	//这里r引用的是派生类的对象
+    r.SomeVirtualFunction();//调用哪个虚函数取决于r引用哪种类型的对象，所以这里调用派生类SomeVirtualFunction()
+    return 0;
+&#125;
+</code></pre>
+</li>
+<li><p><strong>简单示例1</strong></p>
+<pre class=" language-c++"><code class="language-c++">#include<iostream>
+using namespace std;
+
+class A &#123;
+public:
+    virtual void print()
+    &#123;
+        cout << "A::print" << endl;
+    &#125;
+&#125;;
+
+class B :public A &#123;
+public:
+    virtual void print()
+    &#123;
+        cout << "B::print" << endl;
+    &#125;
+&#125;;
+
+class D :public A &#123;
+public:
+    virtual void print()
+    &#123;
+        cout << "D::print" << endl;
+    &#125;
+&#125;;
+
+class E :public B &#123;
+public:
+    virtual void print()
+    &#123;
+        cout << "E::print" << endl;
+    &#125;
+&#125;;
+
+int main()
+&#123;
+    A a;
+    B b;
+    D d;
+    E e;
+    A* pa = &a;
+    B* pb = &b;
+    D* pd = &d;
+    E* pe = &e;
+
+    pa->print();
+    pa = pb;
+    pa->print();
+    pa = pd;
+    pa->print();
+    pa = pe;
+    pa->print();
+    return 0;
+&#125;
+</code></pre>
+<p>运行：</p>
+<pre class=" language-c++"><code class="language-c++">A::print
+B::print
+D::print
+E::print
+</code></pre>
+<p><strong>示例2</strong></p>
+<pre class=" language-c++"><code class="language-c++">#include<iostream>
+#include<stdlib.h>
+#include<math.h>
+using namespace std;
+
+class Cshape
+&#123;
+public:
+    virtual double Area() = 0;	//纯虚函数
+    virtual void printinfo() = 0;
+&#125;;
+
+class CRectangle :public Cshape
+&#123;
+public:
+    int w, h;
+    virtual double Area();
+    virtual void printinfo();
+&#125;;
+
+class CCircle :public Cshape
+&#123;
+public:
+    int r;
+    virtual double Area();
+    virtual void printinfo();
+&#125;;
+
+class CTriangle :public Cshape
+&#123;
+public:
+    int a, b, c;
+    virtual double Area();
+    virtual void printinfo();
+&#125;;
+
+double CRectangle::Area()
+&#123;
+    return w * h;
+&#125;
+
+void CRectangle::printinfo()
+&#123;
+    cout << "Rectangle:" << Area() << endl;
+&#125;
+
+double CCircle::Area()
+&#123;
+    return 3.14 * r * r;
+&#125;
+
+void CCircle::printinfo()
+&#123;
+    cout << "Circle:" << Area() << endl;
+&#125;
+
+double CTriangle::Area()
+&#123;
+    double p = (a + b + c)/2.0;
+    return sqrt(p * (p - a) * (p - b) * (p - c));
+&#125;
+
+void CTriangle::printinfo()
+&#123;
+    cout << "Triangle:" << Area() << endl;
+&#125;
+
+Cshape* pShapes[100];
+int MyCompare(const void* s1, const void* s2);
+
+int main()
+&#123;
+    int i, n;
+    CRectangle* pr;
+    CCircle* pc;
+    CTriangle* pt;
+    cin >> n;
+    for (i = 0; i < n; i++)
+    &#123;
+        char c;
+        cin >> c;
+        switch (c) &#123;
+        case 'R':
+            pr = new CRectangle();
+            cin >> pr->w >> pr->h;
+            pShapes[i] = pr;
+            break;
+        case 'C':
+            pc = new CCircle();
+            cin >> pc->r;
+            pShapes[i] = pc;
+            break;
+        case 'T':
+            pt = new CTriangle();
+            cin >> pt->a >> pt->b >> pt->c;
+            pShapes[i] = pt;
+            break;
+        &#125;
+    &#125;
+    qsort(pShapes, n, sizeof(Cshape*), MyCompare);
+    for (i = 0; i < n; i++)
+        pShapes[i]->printinfo();
+    return 0;
+&#125;
+
+int MyCompare(const void* s1, const void* s2)
+&#123;
+    double a1, a2;
+    Cshape** p1;	//s1,s2是void*，不可写成”*s1“来取得s1指向的内容
+    Cshape** p2;
+    p1 = (Cshape**)s1;	//s1，s2指向pShapes数组中的元素，数组元素的类型是CShape*
+    p2 = (Cshape**)s2;	//故p1，p2都是指向指针的指针，类型为CShape**
+    a1 = (*p1)->Area();	//*p1的类型是Cshape*，是基类指针，故此句为多态
+    a2 = (*p2)->Area();
+    if (a1 < a2)
+        return -1;
+    else if (a2 < a1)
+        return 1;
+    else
+        return 0;
+&#125;
+</code></pre>
+<p>运行：</p>
+<pre class=" language-c++"><code class="language-c++">输入：
+1 C 3
+输出
+Circle:28.26
+</code></pre>
+</li>
+</ol>
 
                 
             </div>
@@ -541,7 +821,7 @@ ls<span class="token punctuation">.</span>reverse<span class="token punctuation"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://loneyforever.github.io/2022/050229345.html">https://loneyforever.github.io/2022/050229345.html</a>
+                    <a href="https://loneyforever.github.io/2022/050926696.html">https://loneyforever.github.io/2022/050926696.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -579,8 +859,8 @@ ls<span class="token punctuation">.</span>reverse<span class="token punctuation"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/c/">
+                                    <span class="chip bg-color">c++</span>
                                 </a>
                             
                         </div>
@@ -754,13 +1034,13 @@ ls<span class="token punctuation">.</span>reverse<span class="token punctuation"
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05098280.html">
+                <a href="/2022/05096207.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="c++string作函数参数">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="c++输入输出模板">
                         
-                        <span class="card-title">c++string作函数参数</span>
+                        <span class="card-title">c++输入输出模板</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -799,13 +1079,13 @@ ls<span class="token punctuation">.</span>reverse<span class="token punctuation"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/050245059.html">
+                <a href="/2022/05098280.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="基本统计">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="c++string作函数参数">
                         
-                        <span class="card-title">基本统计</span>
+                        <span class="card-title">c++string作函数参数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -816,7 +1096,7 @@ ls<span class="token punctuation">.</span>reverse<span class="token punctuation"
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
                             </span>
                         <span class="publish-author">
                             
@@ -829,8 +1109,8 @@ ls<span class="token punctuation">.</span>reverse<span class="token punctuation"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c++</span>
                     </a>
                     
                 </div>

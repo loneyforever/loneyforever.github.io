@@ -4,6 +4,63 @@
   
     
     <entry>
+      <title>c++输入输出模板</title>
+      <link href="/2022/05096207.html"/>
+      <url>/2022/05096207.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、输入输出相关的类"><a href="#一、输入输出相关的类" class="headerlink" title="一、输入输出相关的类"></a>一、输入输出相关的类</h3><pre class=" language-c++"><code class="language-c++">1. istream 是用于输入的流类，cin就是该类的对象。2. ostream 是用于输出的流类，cout就是该类的对象。3. ifstream 是用于从文件读取数据的类。4. ofstream 是用于向文件写入数据的类。5. iostream 是既能用于输入，又能用于输出的类。6. fstream 是技能从文件读取数据，又能向文件写入数据的类。</code></pre><pre class=" language-c++"><code class="language-c++">cin 对应于标准输入流，用于从键盘读取数据，也可以被重定向为从文件中读取数据。cout 对应于标准输出流，用于向屏幕输出数据，也可以被重定向为向文件写入数据。cerr 对应于标准错误输出流，用于向屏幕输出出错信息。clog 对应于标准错误输出流，用于向屏幕输出出错信息。cerr和clog的区别在于cerr不适用缓冲区，直接向显示器输出信息；二输出到clog的信息先会被存放在缓冲区，缓冲区满或者刷新时才会输出到屏幕。</code></pre><h4 id="输入输出定向"><a href="#输入输出定向" class="headerlink" title="输入输出定向"></a>输入输出定向</h4><p>输出重定向例：</p><pre class=" language-c++"><code class="language-c++">#include<iostream>using namespace std;int main()&#123;    int x,y;    cin >> x >> y;    freopen("test.txt","w",stdout);//将标准输出重定向到test.txt文件    if(y==0)//除数为0则在屏幕上输出错误信息        cerr << "error." << endl;    else        cout << x/y;//输出结果到test.txt    return 0;&#125;</code></pre><p>输入重定向例：</p><pre class=" language-c++"><code class="language-c++">#include<iostream>using namespace std;int main()&#123;    double f;    int n;    freopen("t.txt","r",stdin);    cin >> f >> n;    cout << f << "," << n << endl;    return 0;&#125;</code></pre><h4 id="判断输入流结束"><a href="#判断输入流结束" class="headerlink" title="判断输入流结束"></a>判断输入流结束</h4><p>可以用如下方法判断输入流结束：</p><pre><code>int x;while(cin&gt;&gt;x)&#123;    ······&#125;</code></pre><ol><li>如果是文件输入，比如前面有 freopen(“some.txt”,”r”,stdin); 那么，读到文件尾部，输入流就算结束。</li><li>如果从键盘输入，则在单独一行Ctrl + z 代表输入流结束。</li></ol><h4 id="istream类的成员函数"><a href="#istream类的成员函数" class="headerlink" title="istream类的成员函数"></a>istream类的成员函数</h4><pre><code>istream &amp; getline(char *buf, int bufSize);从输入流中读取bufSize-1个字符到缓冲区buf，或读到&#39;\n&#39;为止（哪个先到算哪个）。istream &amp; getline(cahr *buf, int bufSize, char delim);从输入流中读取bufSize-1个字符到缓冲区buf，或者读到delim字符为止（哪个先到算哪个）。两个函数都会自动在buf中读入数据的结尾添加&#39;\0&#39;。&#39;\n&#39;或delim都不会被读入buf，但会被从输入流中取走。如果输入流中&#39;\n&#39;或delim之前的字符个数达到或超过了bufSize个，就导致读入出错，其结果就是：虽然本次读入已经完成，但是之后的读入就都会失败了。可以用 if(!cin.getline(···))判断输入是否结束。boof eof();//判断输入流是否结束int peek();//返回下一个字符，但不从流中去掉istream &amp; putback(char c);//将字符ch放回输入流istream &amp; ignore(int nCount = 1,int delim = EOF);//从流中删掉最多nCount个字符，遇到EOf时结束。</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>c++虚函数与多态</title>
+      <link href="/2022/050926696.html"/>
+      <url>/2022/050926696.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="一、虚函数"><a href="#一、虚函数" class="headerlink" title="一、虚函数"></a>一、虚函数</h3><ol><li>定义：在类的定义中，前面有virtual 关键字的成员函数就是虚函数。</li></ol><pre class=" language-c++"><code class="language-c++">class base&#123;    virtual int get();&#125;;int base::get()&#123;&#125;</code></pre><ol start="2"><li>virtual 关键字只用在类定义里的函数声明中，写函数体时不用。</li><li>构造函数和静态成员函数不能是虚函数</li><li>派生类中和基类中与虚函数同名同参数表的函数不加virtual也自动成为虚函数。</li><li>多态实现的关键——虚函数表：每一个有虚函数的类（或有虚函数的类的派生类都有一个虚函数表），该类的任何对象中都放着虚函数表的指针。虚函数表中列出了该类的虚函数地址。所以每个有虚函数的对象都会多四个字节来存放虚函数表的地址。</li></ol><h4 id="虚析构函数"><a href="#虚析构函数" class="headerlink" title="虚析构函数"></a>虚析构函数</h4><p>为了避免内存泄露，而且时当子类中会有指针成员变量时才会使用到。</p><ol><li>通过基类的指针删除派生类的对象时，通常情况下只调用基类的析构函数。但是，删除一个派生类对象时，应该先调用派生类的析构函数，在调用基类的析构函数。所以就需要把基类的析构函数声明为<strong>virtual</strong>，派生类的析构函数可以不用virtual声明，这时再删除派生类对象时，首先调用派生类的析构函数，然后调用基类的析构函数。</li><li>一般来说，一个类如果定义了虚函数，则应该将析构函数也定义成虚函数。或者，一个类打算作为基类使用，也应该将析构函数定成虚函数。</li></ol><h4 id="纯虚函数和抽象类"><a href="#纯虚函数和抽象类" class="headerlink" title="纯虚函数和抽象类"></a>纯虚函数和抽象类</h4><ol><li>纯虚函数：没有函数体的虚函数</li></ol><pre class=" language-c++"><code class="language-c++">virtual void print() = 0;//纯虚函数</code></pre><ol start="2"><li><p>包含纯虚函数的类就是抽象类</p><p>（1）抽象类只能作为基类来派生新类使用，不能创建抽象类的对象</p><p>（2）抽象类的指针和引用可以指向由抽象类派生出来的类的对象</p></li></ol><p>​例</p><pre class=" language-c++"><code class="language-c++">A a;//A是抽象类，不能创建对象A *pa;//ok，可以定义抽象类的指针和引用pa = new A;//A是抽象类，不能创建对象</code></pre><ol start="3"><li>在抽象类的成员函数内可以调用纯虚函数（因为多态可以调用），但是在构造函数或析构函数内部不能调用纯虚函数。</li><li>如果一个类从抽象类派生而来，那么当且仅当它实现了基类中的所有纯虚函数，它才能成为非抽象类。</li></ol><p>例;</p><pre class=" language-c++"><code class="language-c++">#include<iostream>using namespace std;class A&#123;public:    virtual void f() = 0;//纯虚函数    void g()    &#123;        this->f();//ok，抽象类的成员函数内可以调用纯虚函数，其中this指针指向class A的派生类对象    &#125;    A()    &#123;        //f();   //错误，构造函数或析构函数内部不能调用纯虚函数    &#125;&#125;；class B:public A&#123;public:    void f()    &#123;        cout<<"B:f()"<<endl;    &#125;&#125;;int main()&#123;    B b;    b.g();    return 0;&#125;</code></pre><p>运行：</p><pre class=" language-c++"><code class="language-c++">B:f()</code></pre><h3 id="二、多态"><a href="#二、多态" class="headerlink" title="二、多态"></a>二、多态</h3><p><strong>多态的作用：在面向对象的程序设计中使用多态，能够增强程序的可扩充性，即程序需要修改或增加功能的时候需要增加和改动的代码较少。</strong></p><p><strong>在非构造函数，非析构函数的成员函数中调用虚函数是多态。</strong></p><p><strong>在构造函数和析构函数中调用虚函数，不是多态。编译时即可确定，调用的函数是自己的类或者基类中定义的函数，不会等到运行时才决定调用基类的还是派生类的函数。</strong></p><h4 id="表现形式1："><a href="#表现形式1：" class="headerlink" title="表现形式1："></a>表现形式1：</h4><ol><li><p>派生类的指针可以赋给基类的指针。</p></li><li><p>通过基类指针调用基类和派生类中的同名虚函数时：</p><p>（1）若该指针指向一个基类的对象，那么被调用是基类的虚函数。</p><p>（2）若该指针指向一个派生类的对象，那么被调用是派生类的虚函数。</p><pre class=" language-c++"><code class="language-c++">class CBase&#123;public:    virtual void someVirtualFunction()&#123;&#125;&#125;;class CDerived:public CBase&#123;public:    virtual void SomeVirtualfunction()&#123;&#125;&#125;;int main&#123;    CDerived ODerived;    CBase * p = & ODerived;//这里是由基类的指针指向派生类的对象    p->SomeVirtualFunction();//调用哪个虚函数取决于p指向哪种类型的对象，所以这里是调用派生类的SomeVirtualFunction()    return 0;&#125;</code></pre></li></ol><h4 id="表现形式2："><a href="#表现形式2：" class="headerlink" title="表现形式2："></a>表现形式2：</h4><ol><li><p>派生类的对象可以赋给基类引用。</p></li><li><p>通过基类引用调用基类和派生类中的同名虚函数时：</p><p>（1）若该引用引用的是一个基类的对象，那么被调用的是基类的虚函数。</p><p>（2）若该引用引用的是一个派生类的对象，那么被调用的是派生类的虚函数。</p><pre class=" language-c++"><code class="language-c++">class CBase&#123;public:    virtual void someVirtualFunction()&#123;&#125;&#125;;class CDerived:public CBase&#123;public:    virtual void SomeVirtualfunction()&#123;&#125;&#125;;int main&#123;    CDerived ODerived;    CBase &r = ODerived;//这里r引用的是派生类的对象    r.SomeVirtualFunction();//调用哪个虚函数取决于r引用哪种类型的对象，所以这里调用派生类SomeVirtualFunction()    return 0;&#125;</code></pre></li><li><p><strong>简单示例1</strong></p><pre class=" language-c++"><code class="language-c++">#include<iostream>using namespace std;class A &#123;public:    virtual void print()    &#123;        cout << "A::print" << endl;    &#125;&#125;;class B :public A &#123;public:    virtual void print()    &#123;        cout << "B::print" << endl;    &#125;&#125;;class D :public A &#123;public:    virtual void print()    &#123;        cout << "D::print" << endl;    &#125;&#125;;class E :public B &#123;public:    virtual void print()    &#123;        cout << "E::print" << endl;    &#125;&#125;;int main()&#123;    A a;    B b;    D d;    E e;    A* pa = &a;    B* pb = &b;    D* pd = &d;    E* pe = &e;    pa->print();    pa = pb;    pa->print();    pa = pd;    pa->print();    pa = pe;    pa->print();    return 0;&#125;</code></pre><p>运行：</p><pre class=" language-c++"><code class="language-c++">A::printB::printD::printE::print</code></pre><p><strong>示例2</strong></p><pre class=" language-c++"><code class="language-c++">#include<iostream>#include<stdlib.h>#include<math.h>using namespace std;class Cshape&#123;public:    virtual double Area() = 0;//纯虚函数    virtual void printinfo() = 0;&#125;;class CRectangle :public Cshape&#123;public:    int w, h;    virtual double Area();    virtual void printinfo();&#125;;class CCircle :public Cshape&#123;public:    int r;    virtual double Area();    virtual void printinfo();&#125;;class CTriangle :public Cshape&#123;public:    int a, b, c;    virtual double Area();    virtual void printinfo();&#125;;double CRectangle::Area()&#123;    return w * h;&#125;void CRectangle::printinfo()&#123;    cout << "Rectangle:" << Area() << endl;&#125;double CCircle::Area()&#123;    return 3.14 * r * r;&#125;void CCircle::printinfo()&#123;    cout << "Circle:" << Area() << endl;&#125;double CTriangle::Area()&#123;    double p = (a + b + c)/2.0;    return sqrt(p * (p - a) * (p - b) * (p - c));&#125;void CTriangle::printinfo()&#123;    cout << "Triangle:" << Area() << endl;&#125;Cshape* pShapes[100];int MyCompare(const void* s1, const void* s2);int main()&#123;    int i, n;    CRectangle* pr;    CCircle* pc;    CTriangle* pt;    cin >> n;    for (i = 0; i < n; i++)    &#123;        char c;        cin >> c;        switch (c) &#123;        case 'R':            pr = new CRectangle();            cin >> pr->w >> pr->h;            pShapes[i] = pr;            break;        case 'C':            pc = new CCircle();            cin >> pc->r;            pShapes[i] = pc;            break;        case 'T':            pt = new CTriangle();            cin >> pt->a >> pt->b >> pt->c;            pShapes[i] = pt;            break;        &#125;    &#125;    qsort(pShapes, n, sizeof(Cshape*), MyCompare);    for (i = 0; i < n; i++)        pShapes[i]->printinfo();    return 0;&#125;int MyCompare(const void* s1, const void* s2)&#123;    double a1, a2;    Cshape** p1;//s1,s2是void*，不可写成”*s1“来取得s1指向的内容    Cshape** p2;    p1 = (Cshape**)s1;//s1，s2指向pShapes数组中的元素，数组元素的类型是CShape*    p2 = (Cshape**)s2;//故p1，p2都是指向指针的指针，类型为CShape**    a1 = (*p1)->Area();//*p1的类型是Cshape*，是基类指针，故此句为多态    a2 = (*p2)->Area();    if (a1 < a2)        return -1;    else if (a2 < a1)        return 1;    else        return 0;&#125;</code></pre><p>运行：</p><pre class=" language-c++"><code class="language-c++">输入：1 C 3输出Circle:28.26</code></pre></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>c++string作函数参数</title>
+      <link href="/2022/05098280.html"/>
+      <url>/2022/05098280.html</url>
+      
+        <content type="html"><![CDATA[<h5 id="1-string做参数："><a href="#1-string做参数：" class="headerlink" title="1.string做参数："></a>1.string做参数：</h5><pre class=" language-c++"><code class="language-c++">#include <bits/stdc++.h>using namespace std;void test(string s)&#123;    s="shit";&#125;int main()&#123;    string s&#123;"test"&#125;;    test(s);    cout<<s<<endl;&#125;</code></pre><p>打印结果：</p><pre class=" language-c++"><code class="language-c++">test</code></pre><h5 id="2-string-amp-做参数："><a href="#2-string-amp-做参数：" class="headerlink" title="2.string&amp;做参数："></a>2.string&amp;做参数：</h5><pre class=" language-c++"><code class="language-c++">void test(string &s)&#123;    s="shit";&#125;int main()&#123;    string s&#123;"test"&#125;;    test(s);    cout<<s<<endl;&#125;</code></pre><p>打印结果：</p><pre class=" language-c++"><code class="language-c++">shit</code></pre><p>3.const string&amp;做参数：<br>首先演示一下如果没有const时，直接传入c语言字符串（即”test”)的结果：</p><pre class=" language-c++"><code class="language-c++">void test(string &s)&#123;&#125;int main()&#123;    test("test");&#125;</code></pre><p>报错：无法用 “const char [5]” 类型的值初始化 “std::__cxx11::string &amp;” 类型的引用(非常量限定)</p><p>加上const后就可以了</p><pre class=" language-c++"><code class="language-c++">void test(const string &s)&#123;    cout<<s<<endl;&#125;int main()&#123;    test("test");&#125;</code></pre><p>打印结果：</p><pre class=" language-c++"><code class="language-c++">test</code></pre><p>这里没有报错说明const前缀的应用的一部分原因就是为了方便使用c语言字符串。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>序列类型</title>
       <link href="/2022/050229345.html"/>
       <url>/2022/050229345.html</url>
