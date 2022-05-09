@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>c++虚函数</title>
+      <link href="/2022/050945102.html"/>
+      <url>/2022/050945102.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="一-虚函数"><a class="markdownIt-Anchor" href="#一-虚函数">#</a> 一、虚函数</h3><ol><li>定义：在类的定义中，前面有 virtual 关键字的成员函数就是虚函数。</li></ol><pre class=" language-language-c++"><code class="language-language-c++">class base&#123;virtual int get();&#125;;int base::get()&#123;&#125;</code></pre><ol start="2"><li>virtual 关键字只用在类定义里的函数声明中，写函数体时不用。</li><li>构造函数和静态成员函数不能是虚函数</li><li>派生类中和基类中与虚函数同名同参数表的函数不加 virtual 也自动成为虚函数。</li><li>多态实现的关键 —— 虚函数表：每一个有虚函数的类（或有虚函数的类的派生类都有一个虚函数表），该类的任何对象中都放着虚函数表的指针。虚函数表中列出了该类的虚函数地址。所以每个有虚函数的对象都会多四个字节来存放虚函数表的地址。</li></ol><h4 id="虚析构函数"><a class="markdownIt-Anchor" href="#虚析构函数">#</a> 虚析构函数</h4><p>为了避免内存泄露，而且时当子类中会有指针成员变量时才会使用到。</p><ol><li>通过基类的指针删除派生类的对象时，通常情况下只调用基类的析构函数。但是，删除一个派生类对象时，应该先调用派生类的析构函数，在调用基类的析构函数。所以就需要把基类的析构函数声明为<strong> virtual</strong>，派生类的析构函数可以不用 virtual 声明，这时再删除派生类对象时，首先调用派生类的析构函数，然后调用基类的析构函数。</li><li>一般来说，一个类如果定义了虚函数，则应该将析构函数也定义成虚函数。或者，一个类打算作为基类使用，也应该将析构函数定成虚函数。</li></ol><h4 id="纯虚函数和抽象类"><a class="markdownIt-Anchor" href="#纯虚函数和抽象类">#</a> 纯虚函数和抽象类</h4><ol><li>纯虚函数：没有函数体的虚函数</li></ol><pre class=" language-language-c++"><code class="language-language-c++">virtual void print() = 0;//纯虚函数</code></pre><ol start="2"><li><p>包含纯虚函数的类就是抽象类</p><p>（1）抽象类只能作为基类来派生新类使用，不能创建抽象类的对象</p><p>（2）抽象类的指针和引用可以指向由抽象类派生出来的类的对象</p></li></ol><p>​例</p><pre class=" language-language-c++"><code class="language-language-c++">A a;//A是抽象类，不能创建对象A *pa;//ok，可以定义抽象类的指针和引用pa = new A;//A是抽象类，不能创建对象</code></pre><ol start="3"><li>在抽象类的成员函数内可以调用纯虚函数（因为多态可以调用），但是在构造函数或析构函数内部不能调用纯虚函数。</li><li>如果一个类从抽象类派生而来，那么当且仅当它实现了基类中的所有纯虚函数，它才能成为非抽象类。</li></ol><p>例；</p><pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>using namespace std;class A&#123;public:virtual void f() = 0;//纯虚函数void g()&#123;this->f();//ok，抽象类的成员函数内可以调用纯虚函数，其中this指针指向class A的派生类对象&#125;A()&#123;//f();   //错误，构造函数或析构函数内部不能调用纯虚函数&#125;&#125;；class B:public A&#123;public:void f()&#123;cout<<"B:f()"<<endl;&#125;&#125;;int main()&#123;B b;b.g();return 0;&#125;</code></pre><p>运行：</p><pre class=" language-language-c++"><code class="language-language-c++">B:f()</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>c++多态</title>
       <link href="/2022/050914445.html"/>
       <url>/2022/050914445.html</url>
@@ -28,25 +47,6 @@
       <url>/2022/05096207.html</url>
       
         <content type="html"><![CDATA[<h3 id="一-输入输出相关的类"><a class="markdownIt-Anchor" href="#一-输入输出相关的类">#</a> 一、输入输出相关的类</h3><pre class=" language-language-c++"><code class="language-language-c++">1. istream 是用于输入的流类，cin就是该类的对象。2. ostream 是用于输出的流类，cout就是该类的对象。3. ifstream 是用于从文件读取数据的类。4. ofstream 是用于向文件写入数据的类。5. iostream 是既能用于输入，又能用于输出的类。6. fstream 是技能从文件读取数据，又能向文件写入数据的类。</code></pre><pre class=" language-language-c++"><code class="language-language-c++">cin 对应于标准输入流，用于从键盘读取数据，也可以被重定向为从文件中读取数据。cout 对应于标准输出流，用于向屏幕输出数据，也可以被重定向为向文件写入数据。cerr 对应于标准错误输出流，用于向屏幕输出出错信息。clog 对应于标准错误输出流，用于向屏幕输出出错信息。cerr和clog的区别在于cerr不适用缓冲区，直接向显示器输出信息；二输出到clog的信息先会被存放在缓冲区，缓冲区满或者刷新时才会输出到屏幕。</code></pre><h4 id="输入输出定向"><a class="markdownIt-Anchor" href="#输入输出定向">#</a> 输入输出定向</h4><p>输出重定向例：</p><pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>using namespace std;int main()&#123;int x,y;cin >> x >> y;freopen("test.txt","w",stdout);//将标准输出重定向到test.txt文件if(y==0)//除数为0则在屏幕上输出错误信息cerr << "error." << endl;elsecout << x/y;//输出结果到test.txtreturn 0;&#125;</code></pre><p>输入重定向例：</p><pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>using namespace std;int main()&#123;double f;int n;freopen("t.txt","r",stdin);cin >> f >> n;cout << f << "," << n << endl;return 0;&#125;</code></pre><h4 id="判断输入流结束"><a class="markdownIt-Anchor" href="#判断输入流结束">#</a> 判断输入流结束</h4><p>可以用如下方法判断输入流结束：</p><pre class=" language-language-c++"><code class="language-language-c++">int x;while(cin>>x)&#123;······&#125;</code></pre><ol><li>如果是文件输入，比如前面有 freopen (“some.txt”,“r”,stdin); 那么，读到文件尾部，输入流就算结束。</li><li>如果从键盘输入，则在单独一行 Ctrl + z 代表输入流结束。</li></ol><h4 id="istream类的成员函数"><a class="markdownIt-Anchor" href="#istream类的成员函数">#</a> istream 类的成员函数</h4><pre class=" language-language-c++"><code class="language-language-c++">istream & getline(char *buf, int bufSize);从输入流中读取bufSize-1个字符到缓冲区buf，或读到'\n'为止（哪个先到算哪个）。istream & getline(cahr *buf, int bufSize, char delim);从输入流中读取bufSize-1个字符到缓冲区buf，或者读到delim字符为止（哪个先到算哪个）。两个函数都会自动在buf中读入数据的结尾添加'\0'。'\n'或delim都不会被读入buf，但会被从输入流中取走。如果输入流中'\n'或delim之前的字符个数达到或超过了bufSize个，就导致读入出错，其结果就是：虽然本次读入已经完成，但是之后的读入就都会失败了。可以用 if(!cin.getline(···))判断输入是否结束。boof eof();//判断输入流是否结束int peek();//返回下一个字符，但不从流中去掉istream & putback(char c);//将字符ch放回输入流istream & ignore(int nCount = 1,int delim = EOF);//从流中删掉最多nCount个字符，遇到EOf时结束。</code></pre>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> c++ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>c++虚函数与多态</title>
-      <link href="/2022/050926696.html"/>
-      <url>/2022/050926696.html</url>
-      
-        <content type="html"><![CDATA[<h3 id="一-虚函数"><a class="markdownIt-Anchor" href="#一-虚函数">#</a> 一、虚函数</h3><ol><li>定义：在类的定义中，前面有 virtual 关键字的成员函数就是虚函数。</li></ol><pre class=" language-language-c++"><code class="language-language-c++">class base&#123;virtual int get();&#125;;int base::get()&#123;&#125;</code></pre><ol start="2"><li>virtual 关键字只用在类定义里的函数声明中，写函数体时不用。</li><li>构造函数和静态成员函数不能是虚函数</li><li>派生类中和基类中与虚函数同名同参数表的函数不加 virtual 也自动成为虚函数。</li><li>多态实现的关键 —— 虚函数表：每一个有虚函数的类（或有虚函数的类的派生类都有一个虚函数表），该类的任何对象中都放着虚函数表的指针。虚函数表中列出了该类的虚函数地址。所以每个有虚函数的对象都会多四个字节来存放虚函数表的地址。</li></ol><h4 id="虚析构函数"><a class="markdownIt-Anchor" href="#虚析构函数">#</a> 虚析构函数</h4><p>为了避免内存泄露，而且时当子类中会有指针成员变量时才会使用到。</p><ol><li>通过基类的指针删除派生类的对象时，通常情况下只调用基类的析构函数。但是，删除一个派生类对象时，应该先调用派生类的析构函数，在调用基类的析构函数。所以就需要把基类的析构函数声明为<strong> virtual</strong>，派生类的析构函数可以不用 virtual 声明，这时再删除派生类对象时，首先调用派生类的析构函数，然后调用基类的析构函数。</li><li>一般来说，一个类如果定义了虚函数，则应该将析构函数也定义成虚函数。或者，一个类打算作为基类使用，也应该将析构函数定成虚函数。</li></ol><h4 id="纯虚函数和抽象类"><a class="markdownIt-Anchor" href="#纯虚函数和抽象类">#</a> 纯虚函数和抽象类</h4><ol><li>纯虚函数：没有函数体的虚函数</li></ol><pre class=" language-language-c++"><code class="language-language-c++">virtual void print() = 0;//纯虚函数</code></pre><ol start="2"><li><p>包含纯虚函数的类就是抽象类</p><p>（1）抽象类只能作为基类来派生新类使用，不能创建抽象类的对象</p><p>（2）抽象类的指针和引用可以指向由抽象类派生出来的类的对象</p></li></ol><p>​例</p><pre class=" language-language-c++"><code class="language-language-c++">A a;//A是抽象类，不能创建对象A *pa;//ok，可以定义抽象类的指针和引用pa = new A;//A是抽象类，不能创建对象</code></pre><ol start="3"><li>在抽象类的成员函数内可以调用纯虚函数（因为多态可以调用），但是在构造函数或析构函数内部不能调用纯虚函数。</li><li>如果一个类从抽象类派生而来，那么当且仅当它实现了基类中的所有纯虚函数，它才能成为非抽象类。</li></ol><p>例；</p><pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>using namespace std;class A&#123;public:virtual void f() = 0;//纯虚函数void g()&#123;this->f();//ok，抽象类的成员函数内可以调用纯虚函数，其中this指针指向class A的派生类对象&#125;A()&#123;//f();   //错误，构造函数或析构函数内部不能调用纯虚函数&#125;&#125;；class B:public A&#123;public:void f()&#123;cout<<"B:f()"<<endl;&#125;&#125;;int main()&#123;B b;b.g();return 0;&#125;</code></pre><p>运行：</p><pre class=" language-language-c++"><code class="language-language-c++">B:f()</code></pre>]]></content>
       
       
       
