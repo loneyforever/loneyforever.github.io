@@ -477,11 +477,11 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    一、文本文件1. #include	//包含头文件
+                                    # 一、文本文件
+1. #include	//包含头文件
 2. ofstream outFile("clinents.dat",ios::out|ios::binary);	//创建文件
 
-"clients.dat"   	//要创建的文件名字
-
+"clients.dat"   	//要创建的文件
                                 
                             </div>
                             <div class="publish-info">
@@ -536,13 +536,14 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    流操纵算子
+                                    # 流操纵算子
+
 整数流的基数：流操纵算子 dec， ect， hex，setbase
 浮点数的精度（precision， setprecision）
 设置域宽（setw， width）
 用户自定义的流操纵算子
 
-注意：使用流算子需要 #incl
+注意：使用流算子需要 #i
                                 
                             </div>
                             <div class="publish-info">
@@ -597,15 +598,15 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    一、虚函数
-定义：在类的定义中，前面有virtual 关键字的成员函数就是虚函数。
+                                    # 一、虚函数
+
+定义：在类的定义中，前面有 virtual 关键字的成员函数就是虚函数。
 
 class base&#123;
-    virtual int get();
+	virtual int get();
 &#125;;
 
 int base::get()&#123;&#125;
-
                                 
                             </div>
                             <div class="publish-info">
@@ -660,9 +661,10 @@ int base::get()&#123;&#125;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    二、多态多态的作用：在面向对象的程序设计中使用多态，能够增强程序的可扩充性，即程序需要修改或增加功能的时候需要增加和改动的代码较少。
+                                    # 二、多态
+多态的作用：在面向对象的程序设计中使用多态，能够增强程序的可扩充性，即程序需要修改或增加功能的时候需要增加和改动的代码较少。
 在非构造函数，非析构函数的成员函数中调用虚函数是多态。
-在构造函数和析构函数中调用虚函数，不是多态。编译时
+在构造函数和析构函数中调用虚函数，不是多态。
                                 
                             </div>
                             <div class="publish-info">
@@ -717,10 +719,11 @@ int base::get()&#123;&#125;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    一、输入输出相关的类1. istream 是用于输入的流类，cin就是该类的对象。
+                                    # 一、输入输出相关的类
+1. istream 是用于输入的流类，cin就是该类的对象。
 2. ostream 是用于输出的流类，cout就是该类的对象。
 3. ifstream 是用于从文件读取数据的类。
-4. ofstream 是用于向文件写
+4. ofstream 是用于向
                                 
                             </div>
                             <div class="publish-info">
@@ -775,13 +778,14 @@ int base::get()&#123;&#125;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    1.string做参数：#include 
+                                    # 1.string 做参数：
+#include 
 using namespace std;
 void test(string s)&#123;
     s="shit";
 &#125;
 int main()&#123;
-    string s&
+    strin
                                 
                             </div>
                             <div class="publish-info">
@@ -836,13 +840,14 @@ int main()&#123;
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    一、序列类型通用函数len(s)		//返回序列的长度
+                                    # 一、序列类型通用函数
+len(s)		//返回序列的长度
 
 min(s)		//返回序列的最小元素，s中元素需要可比较
 
 max(s)		//返回序列的最大元素，s中元素需要可比较
 
-s.index(i)或s.index(x,i,j)		//
+s.index(i)或s.index(x,i,j)	
                                 
                             </div>
                             <div class="publish-info">
@@ -897,12 +902,13 @@ s.index(i)或s.index(x,i,j)		//
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    一、基本统计值1.总个数：len()
-2.求和：for…in
-3.平均值：求和&#x2F;总个数
-4.方差：各数据与平均数差的平方的和的平均数
-5.中位数：排序，然后… 奇数找中间一个，偶数找中间两个取平均
-​	sorted(x)函数为列表
+                                    # 一、基本统计值
+1. 总个数：len ()
+2. 求和：for…in
+3. 平均值：求和 / 总个数
+4. 方差：各数据与平均数差的平方的和的平均数
+5. 中位数：排序，然后… 奇数找中间一个，偶数找中间两个取平均
+​	sorted (
                                 
                             </div>
                             <div class="publish-info">
@@ -962,7 +968,8 @@ s.index(i)或s.index(x,i,j)		//
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    库引用1.传统引用
+                                    # 库引用
+1. 传统引用
 import + 库名
 调用：
 库名.函数名(参数)
@@ -970,7 +977,7 @@ import + 库名
 import turtle
 turtle.pensize(123)
 
-2.使用from+保留字引用，调用时可以直接使用函数名（前提是没有别的函数与库中的函数重名
+2. 使用 from + 保留字引用，调用时可以直接使用函数名（前提是没有别的函数
                                 
                             </div>
                             <div class="publish-info">
@@ -1025,8 +1032,8 @@ turtle.pensize(123)
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    1.天天向上的力量
-这是”实例”题，与课上讲解实例相同，请作答检验学习效果。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬‪‬
+                                    1. 天天向上的力量
+这是 &quot;实例&quot; 题，与课上讲解实例相同，请作答检验学习效果。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬‪‬‪‬‪
                                 
                             </div>
                             <div class="publish-info">
@@ -1081,7 +1088,8 @@ turtle.pensize(123)
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    字符串常用函数其中str为目标字符串
+                                    # 字符串常用函数
+其中str为目标字符串
 
 str.lower()：将字符全改为小写
 
@@ -1089,7 +1097,7 @@ str.upper()：将字符全改为大写
 
 str.split( sep = none )：返回一个列表，由str根据sep分割的部分组成
 
-str.cou
+str.
                                 
                             </div>
                             <div class="publish-info">

@@ -473,38 +473,44 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="流操纵算子"><a href="#流操纵算子" class="headerlink" title="流操纵算子"></a>流操纵算子</h3><ol>
+                <h3 id="流操纵算子"><a class="markdownIt-Anchor" href="#流操纵算子">#</a> 流操纵算子</h3>
+<ol>
 <li>整数流的基数：流操纵算子 dec， ect， hex，setbase</li>
 <li>浮点数的精度（precision， setprecision）</li>
 <li>设置域宽（setw， width）</li>
 <li>用户自定义的流操纵算子</li>
 </ol>
 <p><strong>注意：使用流算子需要 #include<iomanip> 头文件</strong></p>
-<h4 id="一、整数流的基数"><a href="#一、整数流的基数" class="headerlink" title="一、整数流的基数"></a>一、整数流的基数</h4><p>示例：</p>
-<pre class=" language-c++"><code class="language-c++">#include<iomanip>
+<h4 id="一-整数流的基数"><a class="markdownIt-Anchor" href="#一-整数流的基数">#</a> 一、整数流的基数</h4>
+<p>示例：</p>
+<pre class=" language-language-c++"><code class="language-language-c++">#include<iomanip>
 #include<iostream>
 using namespace std;
 
 int main()
 &#123;
-    int n = 10;
-    cout<<n<<endl; //普通输出为十进制
-    cout<<hex<<n<<"\n";	//输出为十六进制
-    cout<<dec<<n<<"\n";	//输出为十进制
-    cout<<oct<<n<<endl;	//输出为八进制
-    return 0;
+	int n = 10;
+	cout<<n<<endl; //普通输出为十进制
+	cout<<hex<<n<<"\n";	//输出为十六进制
+	cout<<dec<<n<<"\n";	//输出为十进制
+	cout<<oct<<n<<endl;	//输出为八进制
+	return 0;
 &#125;
 </code></pre>
 <p>结果：</p>
-<pre class=" language-c++"><code class="language-c++">10
+<pre class=" language-language-c++"><code class="language-language-c++">10
 a
 10
 12
 </code></pre>
-<h4 id="二、控制浮点数精度的流操纵算子"><a href="#二、控制浮点数精度的流操纵算子" class="headerlink" title="二、控制浮点数精度的流操纵算子"></a>二、控制浮点数精度的流操纵算子</h4><h5 id="precision-setprecision"><a href="#precision-setprecision" class="headerlink" title="precision, setprecision"></a>precision, setprecision</h5><ol>
-<li><p>precision是成员函数，其调用方式为：cout.precision(5);</p>
+<h4 id="二-控制浮点数精度的流操纵算子"><a class="markdownIt-Anchor" href="#二-控制浮点数精度的流操纵算子">#</a> 二、控制浮点数精度的流操纵算子</h4>
+<h5 id="precision-setprecision"><a class="markdownIt-Anchor" href="#precision-setprecision">#</a> precision, setprecision</h5>
+<ol>
+<li>
+<p>precision 是成员函数，其调用方式为：cout.precision (5);</p>
 </li>
-<li><p>setprecision是流操作算子，其调用方式为：cout &lt;&lt; setprecision(5);   &#x2F;&#x2F;可以为连续输出</p>
+<li>
+<p>setprecision 是流操作算子，其调用方式为：cout &lt;&lt;setprecision (5);   // 可以为连续输出</p>
 </li>
 </ol>
 <p>他们功能相同。</p>
@@ -513,119 +519,120 @@ a
 <li>指定输出浮点数的小数点后的有效位数（定点方式输出时）</li>
 <li>定点方式：小数点必须出现在个位数后面</li>
 </ol>
-<p>示例1：</p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
+<p>示例 1：</p>
+<pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>
 #include<iomanip>
 using namespace std;
 
 int main()
 &#123;
-    double x = 1234567.89, y = 12.34567;
-    int n = 1234567, m = 12;
-    cout << setprecision(6) << x << endl << y << endl << n << endl << m;
-    return 0;
+	double x = 1234567.89, y = 12.34567;
+	int n = 1234567, m = 12;
+	cout << setprecision(6) << x << endl << y << endl << n << endl << m;
+	return 0;
 &#125;
 </code></pre>
 <p>结果：</p>
-<pre class=" language-c++"><code class="language-c++">1.23457e+06
+<pre class=" language-language-c++"><code class="language-language-c++">1.23457e+06
 12.3457
 1234567
 12
 </code></pre>
-<p>示例2（定点的方式输出）：</p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
+<p>示例 2（定点的方式输出）：</p>
+<pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>
 #include<iomanip>
 using namespace std;
 
 int main()
 &#123;
-    double x = 1234567.89, y = 12.34567;
-    int n = 1234567, m = 12;
-    cout << setiosflags(ios::fixed)/*以小数点位置固定的方式输出*/ << setprecision(6) << x << endl 
+	double x = 1234567.89, y = 12.34567;
+	int n = 1234567, m = 12;
+	cout << setiosflags(ios::fixed)/*以小数点位置固定的方式输出*/ << setprecision(6) << x << endl 
         << y << endl << n << endl << m;
-    return 0;
+	return 0;
 &#125;
 </code></pre>
 <p>结果：</p>
-<pre class=" language-c++"><code class="language-c++">1234567.890000
+<pre class=" language-language-c++"><code class="language-language-c++">1234567.890000
 12.345670
 1234567
 12
 </code></pre>
-<p>示例3：</p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
+<p>示例 3：</p>
+<pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>
 #include<iomanip>
 using namespace std;
 
 int main()
 &#123;
-    double x = 1234567.89;
-    cout << setiosflags(ios::fixed)/*以小数点位置固定的方式输出*/ << setprecision(6) << x << endl 
+	double x = 1234567.89;
+	cout << setiosflags(ios::fixed)/*以小数点位置固定的方式输出*/ << setprecision(6) << x << endl 
         << resetiosflags(ios::fixed)/*取消以小数点位置固定的方式输出*/ << x;
-    return 0;
+	return 0;
 &#125;
 </code></pre>
-<h4 id="三、设置域宽的流操纵算子"><a href="#三、设置域宽的流操纵算子" class="headerlink" title="三、设置域宽的流操纵算子"></a>三、设置域宽的流操纵算子</h4><p>设置域宽（setw， width）</p>
+<h4 id="三-设置域宽的流操纵算子"><a class="markdownIt-Anchor" href="#三-设置域宽的流操纵算子">#</a> 三、设置域宽的流操纵算子</h4>
+<p>设置域宽（setw， width）</p>
 <p>两者功能相同，一个时成员函数，另一个时流操作算子，调用方式不同：</p>
-<pre class=" language-c++"><code class="language-c++">cin >> setw(4); 或者 cin.width(5);
+<pre class=" language-language-c++"><code class="language-language-c++">cin >> setw(4); 或者 cin.width(5);
 cout << setw(4) 或者 cout.width(5);
 </code></pre>
-<p>示例1（设置域宽（setw， width））</p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
+<p>示例 1（设置域宽（setw， width））</p>
+<pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>
 #include<iomanip>
 using namespace std;
 
 int main()
 &#123;
-    int w = 4;
-    char string[10];
-    cin.width(5);	//宽度设置有效性是一次性的，在每次读入和输出之前都要设置宽度
-    while (cin >> string)
-    &#123;
-        cout.width(w++);	//输出宽度做+1的操作
-        cout << string << endl;
-        cin.width(5);	//设置宽度
-    &#125;
-    return 0;
+	int w = 4;
+	char string[10];
+	cin.width(5);	//宽度设置有效性是一次性的，在每次读入和输出之前都要设置宽度
+	while (cin >> string)
+	&#123;
+		cout.width(w++);	//输出宽度做+1的操作
+		cout << string << endl;
+		cin.width(5);	//设置宽度
+	&#125;
+	return 0;
 &#125;
 </code></pre>
 <p>结果：</p>
-<pre class=" language-c++"><code class="language-c++">1234567890
+<pre class=" language-language-c++"><code class="language-language-c++">1234567890
 1234
  5678
     90
 </code></pre>
-<p>示例2（总结）：</p>
-<pre class=" language-c++"><code class="language-c++">#include<iostream>
+<p>示例 2（总结）：</p>
+<pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>
 #include<iomanip>
 using namespace std;
 
 int main()
 &#123;
-    int n = 141;
-    //1)分别以十六进制、十进制、八进制先后输出n
-    cout << "1)" << hex << n << " " << dec << n << " " << oct << n << endl;
-    double x = 1234567.89, y = 12.34567;
-    //2)保留5为有效数字
-    cout << "2)" << setprecision(5) << x << " " << y << " " << endl;
-    //3)保留小数点后面五位
-    cout << "3)" << fixed << setprecision(5) << x << " " << y << endl;
-    //4)科学计数法输出，且保留小数点后面5位
-    cout << "4)" << scientific << setprecision(5) << x << " " << y << endl;
-    //5)非负数要显示正号，输出宽度为12字符，宽度不足则用‘*’填补
-    cout << "5)" << showpos << fixed << setw(12) << setfill('*') << 12.1 << endl;
-    //6）非负数不显示正号，输出宽度为12字符，宽度不足则右边用填充字符填充
-    cout << "6)" << noshowpos << setw(12) << left << 12.1 << endl;
-    //7）输出宽度为12字符，宽度不足则左边用填充字符填充
-    cout << "7)" << setw(12) << right << 12.1 << endl;
-    //8）宽度不足时，负号和数值分列左右，中间用填充字符填充
-    cout << "8)" << setw(12) << internal << -12.1 << endl;
-    cout << "9)" << 12.1 << endl;
-    return 0;
+	int n = 141;
+	//1)分别以十六进制、十进制、八进制先后输出n
+	cout << "1)" << hex << n << " " << dec << n << " " << oct << n << endl;
+	double x = 1234567.89, y = 12.34567;
+	//2)保留5为有效数字
+	cout << "2)" << setprecision(5) << x << " " << y << " " << endl;
+	//3)保留小数点后面五位
+	cout << "3)" << fixed << setprecision(5) << x << " " << y << endl;
+	//4)科学计数法输出，且保留小数点后面5位
+	cout << "4)" << scientific << setprecision(5) << x << " " << y << endl;
+	//5)非负数要显示正号，输出宽度为12字符，宽度不足则用‘*’填补
+	cout << "5)" << showpos << fixed << setw(12) << setfill('*') << 12.1 << endl;
+	//6）非负数不显示正号，输出宽度为12字符，宽度不足则右边用填充字符填充
+	cout << "6)" << noshowpos << setw(12) << left << 12.1 << endl;
+	//7）输出宽度为12字符，宽度不足则左边用填充字符填充
+	cout << "7)" << setw(12) << right << 12.1 << endl;
+	//8）宽度不足时，负号和数值分列左右，中间用填充字符填充
+	cout << "8)" << setw(12) << internal << -12.1 << endl;
+	cout << "9)" << 12.1 << endl;
+	return 0;
 &#125;
 </code></pre>
 <p>结果：</p>
-<pre class=" language-c++"><code class="language-c++">1)8d 141 215
+<pre class=" language-language-c++"><code class="language-language-c++">1)8d 141 215
 2)1.2346e+06 12.346
 3)1234567.89000 12.34567
 4)1.23457e+06 1.23457e+01
@@ -635,19 +642,20 @@ int main()
 8)-***12.10000
 9)12.10000
 </code></pre>
-<h4 id="四、用户自定义操纵流算子"><a href="#四、用户自定义操纵流算子" class="headerlink" title="四、用户自定义操纵流算子"></a>四、用户自定义操纵流算子</h4><p>定义格式：</p>
-<pre class=" language-c++"><code class="language-c++">定义：
+<h4 id="四-用户自定义操纵流算子"><a class="markdownIt-Anchor" href="#四-用户自定义操纵流算子">#</a> 四、用户自定义操纵流算子</h4>
+<p>定义格式：</p>
+<pre class=" language-language-c++"><code class="language-language-c++">定义：
 ostream &tab(ostream &output)
 &#123;
-    return output << '\t'
+	return output << '\t'
 &#125;
 使用：
 cout << "aa" << tab << "bb" <<endl;
 </code></pre>
-<p>iostream 里对&lt;&lt;进行了重载（成员函数）</p>
+<p>iostream 里对 &lt;&lt; 进行了重载（成员函数）</p>
 <p>ostream &amp; operator</p>
 <p>&lt;&lt;(ostream &amp; (*p)(ostream &amp;));</p>
-<p>该函数内部会调用p所指向的函数，且以*this作为参数</p>
+<p>该函数内部会调用 p 所指向的函数，且以 * this 作为参数</p>
 <p>hex、dec、oct 都是函数</p>
 
                 
