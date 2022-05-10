@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    101
+                    121
                 </div>
                 
 
@@ -473,27 +473,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="库引用"><a class="markdownIt-Anchor" href="#库引用">#</a> 库引用</h4>
-<p>1. 传统引用</p>
-<pre class=" language-language-python"><code class="language-language-python">import + 库名
+                <h4 id="库引用"><a href="#库引用" class="headerlink" title="库引用"></a>库引用</h4><p>1.传统引用</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> <span class="token operator">+</span> 库名
 调用：
-库名.函数名(参数)
+库名<span class="token punctuation">.</span>函数名<span class="token punctuation">(</span>参数<span class="token punctuation">)</span>
 例：
-import turtle
-turtle.pensize(123)
+<span class="token keyword">import</span> turtle
+turtle<span class="token punctuation">.</span>pensize<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span>
 </code></pre>
-<p>2. 使用 from + 保留字引用，调用时可以直接使用函数名（前提是没有别的函数与库中的函数重名）</p>
+<p>2.使用from+保留字引用，调用时可以直接使用函数名（前提是没有别的函数与库中的函数重名）</p>
 <pre><code>例如：
 from turtle import*
 pensize(123)
 </code></pre>
-<p>3. 取别名（由 import 和 as 保留字共同完成）</p>
-<pre class=" language-language-python"><code class="language-language-python">使用方式为：
-import <库名> as <库别名>
-<库别名>.<函数名>（<函数参数>）
+<p>3.取别名（由 import 和 as 保留字共同完成）</p>
+<pre class=" language-python"><code class="language-python">使用方式为：
+<span class="token keyword">import</span> <span class="token operator">&lt;</span>库名<span class="token operator">></span> <span class="token keyword">as</span> <span class="token operator">&lt;</span>库别名<span class="token operator">></span>
+<span class="token operator">&lt;</span>库别名<span class="token operator">></span><span class="token punctuation">.</span><span class="token operator">&lt;</span>函数名<span class="token operator">></span>（<span class="token operator">&lt;</span>函数参数<span class="token operator">></span>）
 列：
-import turtle as t
-t.pensize(123)
+<span class="token keyword">import</span> turtle <span class="token keyword">as</span> t
+t<span class="token punctuation">.</span>pensize<span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span>
 </code></pre>
 
                 

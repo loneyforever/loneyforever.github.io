@@ -473,12 +473,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一-虚函数"><a class="markdownIt-Anchor" href="#一-虚函数">#</a> 一、虚函数</h3>
-<ol>
-<li>定义：在类的定义中，前面有 virtual 关键字的成员函数就是虚函数。</li>
+                <h3 id="一、虚函数"><a href="#一、虚函数" class="headerlink" title="一、虚函数"></a>一、虚函数</h3><ol>
+<li>定义：在类的定义中，前面有virtual 关键字的成员函数就是虚函数。</li>
 </ol>
-<pre class=" language-language-c++"><code class="language-language-c++">class base&#123;
-	virtual int get();
+<pre class=" language-c++"><code class="language-c++">class base&#123;
+    virtual int get();
 &#125;;
 
 int base::get()&#123;&#125;
@@ -486,30 +485,27 @@ int base::get()&#123;&#125;
 <ol start="2">
 <li>virtual 关键字只用在类定义里的函数声明中，写函数体时不用。</li>
 <li>构造函数和静态成员函数不能是虚函数</li>
-<li>派生类中和基类中与虚函数同名同参数表的函数不加 virtual 也自动成为虚函数。</li>
-<li>多态实现的关键 —— 虚函数表：每一个有虚函数的类（或有虚函数的类的派生类都有一个虚函数表），该类的任何对象中都放着虚函数表的指针。虚函数表中列出了该类的虚函数地址。所以每个有虚函数的对象都会多四个字节来存放虚函数表的地址。</li>
+<li>派生类中和基类中与虚函数同名同参数表的函数不加virtual也自动成为虚函数。</li>
+<li>多态实现的关键——虚函数表：每一个有虚函数的类（或有虚函数的类的派生类都有一个虚函数表），该类的任何对象中都放着虚函数表的指针。虚函数表中列出了该类的虚函数地址。所以每个有虚函数的对象都会多四个字节来存放虚函数表的地址。</li>
 </ol>
-<h4 id="虚析构函数"><a class="markdownIt-Anchor" href="#虚析构函数">#</a> 虚析构函数</h4>
-<p>为了避免内存泄露，而且时当子类中会有指针成员变量时才会使用到。</p>
+<h4 id="虚析构函数"><a href="#虚析构函数" class="headerlink" title="虚析构函数"></a>虚析构函数</h4><p>为了避免内存泄露，而且时当子类中会有指针成员变量时才会使用到。</p>
 <ol>
-<li>通过基类的指针删除派生类的对象时，通常情况下只调用基类的析构函数。但是，删除一个派生类对象时，应该先调用派生类的析构函数，在调用基类的析构函数。所以就需要把基类的析构函数声明为<strong> virtual</strong>，派生类的析构函数可以不用 virtual 声明，这时再删除派生类对象时，首先调用派生类的析构函数，然后调用基类的析构函数。</li>
+<li>通过基类的指针删除派生类的对象时，通常情况下只调用基类的析构函数。但是，删除一个派生类对象时，应该先调用派生类的析构函数，在调用基类的析构函数。所以就需要把基类的析构函数声明为<strong>virtual</strong>，派生类的析构函数可以不用virtual声明，这时再删除派生类对象时，首先调用派生类的析构函数，然后调用基类的析构函数。</li>
 <li>一般来说，一个类如果定义了虚函数，则应该将析构函数也定义成虚函数。或者，一个类打算作为基类使用，也应该将析构函数定成虚函数。</li>
 </ol>
-<h4 id="纯虚函数和抽象类"><a class="markdownIt-Anchor" href="#纯虚函数和抽象类">#</a> 纯虚函数和抽象类</h4>
-<ol>
+<h4 id="纯虚函数和抽象类"><a href="#纯虚函数和抽象类" class="headerlink" title="纯虚函数和抽象类"></a>纯虚函数和抽象类</h4><ol>
 <li>纯虚函数：没有函数体的虚函数</li>
 </ol>
-<pre class=" language-language-c++"><code class="language-language-c++">virtual void print() = 0;	//纯虚函数
+<pre class=" language-c++"><code class="language-c++">virtual void print() = 0;	//纯虚函数
 </code></pre>
 <ol start="2">
-<li>
-<p>包含纯虚函数的类就是抽象类</p>
+<li><p>包含纯虚函数的类就是抽象类</p>
 <p>（1）抽象类只能作为基类来派生新类使用，不能创建抽象类的对象</p>
 <p>（2）抽象类的指针和引用可以指向由抽象类派生出来的类的对象</p>
 </li>
 </ol>
 <p>​	例</p>
-<pre class=" language-language-c++"><code class="language-language-c++">A a;	//A是抽象类，不能创建对象
+<pre class=" language-c++"><code class="language-c++">A a;	//A是抽象类，不能创建对象
 A *pa;	//ok，可以定义抽象类的指针和引用
 pa = new A;		//A是抽象类，不能创建对象
 </code></pre>
@@ -517,41 +513,41 @@ pa = new A;		//A是抽象类，不能创建对象
 <li>在抽象类的成员函数内可以调用纯虚函数（因为多态可以调用），但是在构造函数或析构函数内部不能调用纯虚函数。</li>
 <li>如果一个类从抽象类派生而来，那么当且仅当它实现了基类中的所有纯虚函数，它才能成为非抽象类。</li>
 </ol>
-<p>例；</p>
-<pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>
+<p>例;</p>
+<pre class=" language-c++"><code class="language-c++">#include<iostream>
 using namespace std;
 
 class A&#123;
 public:
-	virtual void f() = 0;	//纯虚函数
-	void g()
-	&#123;
-		this->f();	//ok，抽象类的成员函数内可以调用纯虚函数，其中this指针指向class A的派生类对象
-	&#125;
-	A()
-	&#123;
-		//f();   //错误，构造函数或析构函数内部不能调用纯虚函数
-	&#125;
+    virtual void f() = 0;	//纯虚函数
+    void g()
+    &#123;
+        this->f();	//ok，抽象类的成员函数内可以调用纯虚函数，其中this指针指向class A的派生类对象
+    &#125;
+    A()
+    &#123;
+        //f();   //错误，构造函数或析构函数内部不能调用纯虚函数
+    &#125;
 &#125;；
 
 class B:public A
 &#123;
 public:
-	void f()
-	&#123;
-		cout<<"B:f()"<<endl;
-	&#125;
+    void f()
+    &#123;
+        cout<<"B:f()"<<endl;
+    &#125;
 &#125;;
 
 int main()
 &#123;
-	B b;
-	b.g();
-	return 0;
+    B b;
+    b.g();
+    return 0;
 &#125;
 </code></pre>
 <p>运行：</p>
-<pre class=" language-language-c++"><code class="language-language-c++">B:f()
+<pre class=" language-c++"><code class="language-c++">B:f()
 </code></pre>
 
                 
@@ -788,18 +784,17 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/050945102.html">
+                <a href="/2022/051054304.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="c++虚函数">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="c++流操纵算子">
                         
-                        <span class="card-title">c++虚函数</span>
+                        <span class="card-title">c++流操纵算子</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -809,9 +804,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-09
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -820,7 +815,6 @@ int main()
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

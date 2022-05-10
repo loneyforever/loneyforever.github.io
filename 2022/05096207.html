@@ -473,65 +473,61 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一-输入输出相关的类"><a class="markdownIt-Anchor" href="#一-输入输出相关的类">#</a> 一、输入输出相关的类</h3>
-<pre class=" language-language-c++"><code class="language-language-c++">1. istream 是用于输入的流类，cin就是该类的对象。
+                <h3 id="一、输入输出相关的类"><a href="#一、输入输出相关的类" class="headerlink" title="一、输入输出相关的类"></a>一、输入输出相关的类</h3><pre class=" language-c++"><code class="language-c++">1. istream 是用于输入的流类，cin就是该类的对象。
 2. ostream 是用于输出的流类，cout就是该类的对象。
 3. ifstream 是用于从文件读取数据的类。
 4. ofstream 是用于向文件写入数据的类。
 5. iostream 是既能用于输入，又能用于输出的类。
 6. fstream 是技能从文件读取数据，又能向文件写入数据的类。
 </code></pre>
-<pre class=" language-language-c++"><code class="language-language-c++">cin 对应于标准输入流，用于从键盘读取数据，也可以被重定向为从文件中读取数据。
+<pre class=" language-c++"><code class="language-c++">cin 对应于标准输入流，用于从键盘读取数据，也可以被重定向为从文件中读取数据。
 cout 对应于标准输出流，用于向屏幕输出数据，也可以被重定向为向文件写入数据。
 cerr 对应于标准错误输出流，用于向屏幕输出出错信息。
 clog 对应于标准错误输出流，用于向屏幕输出出错信息。
 cerr和clog的区别在于cerr不适用缓冲区，直接向显示器输出信息；二输出到clog的信息先会被存放在缓冲区，缓冲区满或者刷新时才会输出到屏幕。
 </code></pre>
-<h4 id="输入输出定向"><a class="markdownIt-Anchor" href="#输入输出定向">#</a> 输入输出定向</h4>
-<p>输出重定向例：</p>
-<pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>
+<h4 id="输入输出定向"><a href="#输入输出定向" class="headerlink" title="输入输出定向"></a>输入输出定向</h4><p>输出重定向例：</p>
+<pre class=" language-c++"><code class="language-c++">#include<iostream>
 using namespace std;
 
 int main()
 &#123;
-	int x,y;
-	cin >> x >> y;
-	freopen("test.txt","w",stdout);	//将标准输出重定向到test.txt文件
-	if(y==0)	//除数为0则在屏幕上输出错误信息
-		cerr << "error." << endl;
-	else
-		cout << x/y;	//输出结果到test.txt
-	return 0;
+    int x,y;
+    cin >> x >> y;
+    freopen("test.txt","w",stdout);	//将标准输出重定向到test.txt文件
+    if(y==0)	//除数为0则在屏幕上输出错误信息
+        cerr << "error." << endl;
+    else
+        cout << x/y;	//输出结果到test.txt
+    return 0;
 &#125;
 </code></pre>
 <p>输入重定向例：</p>
-<pre class=" language-language-c++"><code class="language-language-c++">#include<iostream>
+<pre class=" language-c++"><code class="language-c++">#include<iostream>
 using namespace std;
 
 int main()
 &#123;
-	double f;
-	int n;
-	freopen("t.txt","r",stdin);
-	cin >> f >> n;
-	cout << f << "," << n << endl;
-	return 0;
+    double f;
+    int n;
+    freopen("t.txt","r",stdin);
+    cin >> f >> n;
+    cout << f << "," << n << endl;
+    return 0;
 &#125;
 </code></pre>
-<h4 id="判断输入流结束"><a class="markdownIt-Anchor" href="#判断输入流结束">#</a> 判断输入流结束</h4>
-<p>可以用如下方法判断输入流结束：</p>
-<pre class=" language-language-c++"><code class="language-language-c++">int x;
+<h4 id="判断输入流结束"><a href="#判断输入流结束" class="headerlink" title="判断输入流结束"></a>判断输入流结束</h4><p>可以用如下方法判断输入流结束：</p>
+<pre class=" language-c++"><code class="language-c++">int x;
 while(cin>>x)
 &#123;
-	······
+    ······
 &#125;
 </code></pre>
 <ol>
-<li>如果是文件输入，比如前面有 freopen (“some.txt”,“r”,stdin); 那么，读到文件尾部，输入流就算结束。</li>
-<li>如果从键盘输入，则在单独一行 Ctrl + z 代表输入流结束。</li>
+<li>如果是文件输入，比如前面有 freopen(“some.txt”,”r”,stdin); 那么，读到文件尾部，输入流就算结束。</li>
+<li>如果从键盘输入，则在单独一行Ctrl + z 代表输入流结束。</li>
 </ol>
-<h4 id="istream类的成员函数"><a class="markdownIt-Anchor" href="#istream类的成员函数">#</a> istream 类的成员函数</h4>
-<pre class=" language-language-c++"><code class="language-language-c++">istream & getline(char *buf, int bufSize);
+<h4 id="istream类的成员函数"><a href="#istream类的成员函数" class="headerlink" title="istream类的成员函数"></a>istream类的成员函数</h4><pre class=" language-c++"><code class="language-c++">istream & getline(char *buf, int bufSize);
 从输入流中读取bufSize-1个字符到缓冲区buf，或读到'\n'为止（哪个先到算哪个）。
 
 istream & getline(cahr *buf, int bufSize, char delim);

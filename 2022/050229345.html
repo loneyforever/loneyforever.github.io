@@ -473,51 +473,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一-序列类型通用函数"><a class="markdownIt-Anchor" href="#一-序列类型通用函数">#</a> 一、序列类型通用函数</h3>
-<pre class=" language-language-python"><code class="language-language-python">len(s)		//返回序列的长度
+                <h3 id="一、序列类型通用函数"><a href="#一、序列类型通用函数" class="headerlink" title="一、序列类型通用函数"></a>一、序列类型通用函数</h3><pre class=" language-python"><code class="language-python">len<span class="token punctuation">(</span>s<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列的长度
 
-min(s)		//返回序列的最小元素，s中元素需要可比较
+min<span class="token punctuation">(</span>s<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列的最小元素，s中元素需要可比较
 
-max(s)		//返回序列的最大元素，s中元素需要可比较
+max<span class="token punctuation">(</span>s<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列的最大元素，s中元素需要可比较
 
-s.index(i)或s.index(x,i,j)		//返回序列从i开始到j位置中x第一次出现的位置
+s<span class="token punctuation">.</span>index<span class="token punctuation">(</span>i<span class="token punctuation">)</span>或s<span class="token punctuation">.</span>index<span class="token punctuation">(</span>x<span class="token punctuation">,</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列从i开始到j位置中x第一次出现的位置
 
-s.count(x)		//返回序列中s出现的总次数
+s<span class="token punctuation">.</span>count<span class="token punctuation">(</span>x<span class="token punctuation">)</span>		<span class="token operator">//</span>返回序列中s出现的总次数
 </code></pre>
-<h3 id="二-元组类型"><a class="markdownIt-Anchor" href="#二-元组类型">#</a> 二、元组类型</h3>
-<p>1. 元组是一种序列类型，一旦创建就不能修改</p>
-<p>2. 使用小括号 () 或 tuple () 创建，元素间用逗号分隔</p>
-<p>3. 使用时可以用也可以不用小括号 ()</p>
-<h3 id="三-列表类型"><a class="markdownIt-Anchor" href="#三-列表类型">#</a> 三、列表类型</h3>
-<p>1. 列表是一种序列类型，创建后可以随便修改</p>
-<p>2. 使用方括号 [] 或 list () 创建，元素间用逗号，分隔</p>
-<p>3. 列表中个元素类型可以不同，无长度限制</p>
-<h4 id="列表类型操作函数和方法"><a class="markdownIt-Anchor" href="#列表类型操作函数和方法">#</a> 列表类型操作函数和方法</h4>
-<pre class=" language-language-python"><code class="language-language-python">ls[i]=x			//替换列表ls底i元素为x
+<h3 id="二、元组类型"><a href="#二、元组类型" class="headerlink" title="二、元组类型"></a>二、元组类型</h3><p>1.元组是一种序列类型，一旦创建就不能修改</p>
+<p>2.使用小括号()或tuple()创建，元素间用逗号分隔</p>
+<p>3.使用时可以用也可以不用小括号()</p>
+<h3 id="三、列表类型"><a href="#三、列表类型" class="headerlink" title="三、列表类型"></a>三、列表类型</h3><p>1.列表是一种序列类型，创建后可以随便修改</p>
+<p>2.使用方括号[]或list()创建，元素间用逗号，分隔</p>
+<p>3.列表中个元素类型可以不同，无长度限制</p>
+<h4 id="列表类型操作函数和方法"><a href="#列表类型操作函数和方法" class="headerlink" title="列表类型操作函数和方法"></a>列表类型操作函数和方法</h4><pre class=" language-python"><code class="language-python">ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>x			<span class="token operator">//</span>替换列表ls底i元素为x
 
-ls[i:j:k]=lt		//	用列表lt替换ls切片后所对应元素子列表
+ls<span class="token punctuation">[</span>i<span class="token punctuation">:</span>j<span class="token punctuation">:</span>k<span class="token punctuation">]</span><span class="token operator">=</span>lt		<span class="token operator">//</span>	用列表lt替换ls切片后所对应元素子列表
 
-del ls[i]			//删除列表ls中第i元素
+<span class="token keyword">del</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">]</span>			<span class="token operator">//</span>删除列表ls中第i元素
 
-del ls[i:j:k]			//删除列表ls中第i到j以k为步长的元素
+<span class="token keyword">del</span> ls<span class="token punctuation">[</span>i<span class="token punctuation">:</span>j<span class="token punctuation">:</span>k<span class="token punctuation">]</span>			<span class="token operator">//</span>删除列表ls中第i到j以k为步长的元素
 
-ls+=lt			//更新列表ls，将列表lt元素郑家到列表ls中
+ls<span class="token operator">+=</span>lt			<span class="token operator">//</span>更新列表ls，将列表lt元素郑家到列表ls中
 
-ls*=n			//更新列表，其元素重复n次
+ls<span class="token operator">*=</span>n			<span class="token operator">//</span>更新列表，其元素重复n次
 
-ls.append(x)		//在列表ls最后增加一个元素x
+ls<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x<span class="token punctuation">)</span>		<span class="token operator">//</span>在列表ls最后增加一个元素x
 
-ls,clear()		//删除列表ls中所有元素
+ls<span class="token punctuation">,</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>		<span class="token operator">//</span>删除列表ls中所有元素
 
-ls.copy()		//生成一个新列表，赋值ls中所有元素
+ls<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>		<span class="token operator">//</span>生成一个新列表，赋值ls中所有元素
 
-ls.insert(i,x)		//在列表ls中第i位置增加元素x
+ls<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>i<span class="token punctuation">,</span>x<span class="token punctuation">)</span>		<span class="token operator">//</span>在列表ls中第i位置增加元素x
 
-ls.pop(i)		//将列表ls中第i位置元素取出并删除该元素
+ls<span class="token punctuation">.</span>pop<span class="token punctuation">(</span>i<span class="token punctuation">)</span>		<span class="token operator">//</span>将列表ls中第i位置元素取出并删除该元素
 
-ls.remove(x)		//将列表ls中出现的第一个元素x删除
+ls<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>x<span class="token punctuation">)</span>		<span class="token operator">//</span>将列表ls中出现的第一个元素x删除
 
-ls.reverse()		//将列表ls中的元素反转
+ls<span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span>		<span class="token operator">//</span>将列表ls中的元素反转
 </code></pre>
 
                 
